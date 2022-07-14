@@ -1,0 +1,43 @@
+{
+  "name": "@condorhero/vuepress-plugin-monorepo",
+  "version": "0.0.0",
+  "private": true,
+  "packageManager": "pnpm@7.5.1",
+  "description": "Vuepress plugin I wrote",
+  "keywords": [
+    "vuepress-plugin",
+    "vuepress",
+    "plugin"
+  ],
+  "license": "MIT",
+  "author": "CondorHero",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/condorheroblog/vuepress-plugin.git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "prepare": "rm -rf .husky && husky install && husky add .husky/pre-commit 'npx lint-staged' && git add .husky/pre-commit",
+    "release": "bumpp package.json packages/*/package.json --commit --push --tag && pnpm -r publish",
+    "coverage": "vitest run --coverage",
+    "preinstall": "npx only-allow pnpm",
+    "lint:fix": "eslint . --fix",
+    "lint": "eslint .",
+    "test": "vitest"
+  },
+  "bugs": {
+    "url": "https://github.com/condorheroblog/vuepress-plugin/issues"
+  },
+  "homepage": "https://github.com/condorheroblog/vuepress-plugin#readme",
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "@condorhero/eslint-config-basic": "^0.1.5",
+    "bumpp": "^7.2.0",
+    "eslint": "^8.19.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "vitest": "^0.14.2"
+  }
+}
