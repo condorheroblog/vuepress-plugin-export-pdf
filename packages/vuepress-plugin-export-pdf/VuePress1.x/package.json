@@ -1,0 +1,12 @@
+{
+  "name": "vuepress1.x",
+  "type": "module",
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
+    "docs:export": "press-export-pdf docs"
+  },
+  "devDependencies": {
+    "vuepress": "^1.9.7"
+  }
+}

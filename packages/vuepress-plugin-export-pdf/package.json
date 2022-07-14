@@ -1,5 +1,6 @@
 {
   "name": "@condorhero/vuepress-plugin-export-pdf",
+  "type": "module",
   "version": "0.0.0",
   "description": "Vuepress plugin exports PDF 📁.",
   "keywords": [
@@ -15,12 +16,32 @@
     "url": "git+https://github.com/condorheroblog/vuepress-plugin.git",
     "directory": "packages/vuepress-plugin-export-pdf"
   },
-  "main": "index.js",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "files": [
+    "bin",
+    "dist"
+  ],
+  "bin": {
+    "press-export-pdf": "bin/press-export-pdf.mjs"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "unbuild",
+    "dev": "esno ./src/commands/press-export-pdf.ts"
   },
   "bugs": {
     "url": "https://github.com/condorheroblog/vuepress-plugin/issues"
   },
+  "engines": {
+    "node": ">=8.6"
+  },
+  "devDependencies": {},
   "homepage": "https://github.com/condorheroblog/vuepress-plugin#readme"
 }
