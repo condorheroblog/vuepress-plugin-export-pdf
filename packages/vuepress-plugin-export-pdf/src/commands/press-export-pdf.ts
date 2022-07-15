@@ -1,3 +1,9 @@
-const obj: Record<string, string> = {};
 
-export default obj;
+/**
+* press-export-pdf cli
+*/
+
+import { runCli } from "../runner";
+import { pressExportPdf } from "../cli";
+
+runCli(pressExportPdf);
