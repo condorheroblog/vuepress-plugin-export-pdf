@@ -1,0 +1,17 @@
+{
+  "name": "vue-press",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
+    "docs:export": "press-export-pdf export docs -c ./press-config.js -b ./docs/index.html"
+  },
+  "dependencies": {
+    "@condorhero/vuepress-plugin-export-pdf": "workspace:^0.0.0"
+  },
+  "devDependencies": {
+    "cac": "^6.7.12",
+    "vuepress": "^1.9.7"
+  }
+}
