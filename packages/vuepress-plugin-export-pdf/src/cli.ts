@@ -1,7 +1,10 @@
 import { cac } from "cac";
-import { version } from "../package.json";
 
-export const pressExportPdf = async() => {
+import { version } from "../package.json";
+import { wrapCommand } from "./utils";
+import { createServer } from "./createServer";
+
+export const pressExportCli = async() => {
   // create cac instance
   const program = cac("press-export-pdf");
 
@@ -16,9 +19,7 @@ export const pressExportPdf = async() => {
     .command("export [sourceDir]", "Export current vuepress site to a PDF file(default: docs)")
     .allowUnknownOptions()
     .option("-c, --config <config>", "Set path to config file")
-    .action((files, options) => {
-      console.log(files, options);
-    });
+    .action(wrapCommand(createServer));
 
   const parseResult = program.parse(process.argv);
   console.log(parseResult);

@@ -1,7 +1,6 @@
-import type { pressExportPdf } from "./cli";
+import type { pressExportCli } from "./cli";
 
-export const runCli = async(fn: typeof pressExportPdf) => {
-  // const args = process.argv.slice(2).filter(Boolean);
+export const runCli = async(fn: typeof pressExportCli) => {
   try {
     await fn();
   }

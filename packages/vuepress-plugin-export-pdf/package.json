@@ -34,7 +34,7 @@
   },
   "scripts": {
     "build": "unbuild",
-    "dev": "esno ./src/commands/press-export-pdf.ts"
+    "dev": "esno ./src/commands/press-export-pdf.ts export docs"
   },
   "bugs": {
     "url": "https://github.com/condorheroblog/vuepress-plugin/issues"
@@ -44,6 +44,12 @@
   },
   "homepage": "https://github.com/condorheroblog/vuepress-plugin#readme",
   "dependencies": {
-    "cac": "^6.7.12"
+    "@vuepress/utils": "^2.0.0-alpha.1",
+    "cac": "^6.7.12",
+    "pdfjs": "^2.4.7",
+    "puppeteer": "^15.4.0"
+  },
+  "devDependencies": {
+    "vuepress": "^1.9.7"
   }
 }

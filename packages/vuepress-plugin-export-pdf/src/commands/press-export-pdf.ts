@@ -4,6 +4,6 @@
 */
 
 import { runCli } from "../runner";
-import { pressExportPdf } from "../cli";
+import { pressExportCli } from "../cli";
 
-runCli(pressExportPdf);
+runCli(pressExportCli);
