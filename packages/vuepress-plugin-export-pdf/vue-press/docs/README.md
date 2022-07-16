@@ -1,8 +1,8 @@
 ---
 home: true
-heroText: VuePress1.x example
-tagline: VuePress1.x example
+heroText: vue-press example
+tagline: vue-press example
 actionText: start →
 actionLink: /guilde/
-footer: VuePress1.x | example
+footer: vue-press | example
 ---

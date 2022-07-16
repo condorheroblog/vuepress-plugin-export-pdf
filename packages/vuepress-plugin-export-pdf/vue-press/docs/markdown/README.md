@@ -1,10 +1,9 @@
-# article
-
-> content
-
+# Install
 ## title
 
 title
+
+> content
 
 ### Badge <Badge text="beta" type="warning"/> <Badge text="default theme"/>
 

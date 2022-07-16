@@ -1,7 +1,7 @@
 const { description } = require('../../package');
 
 module.exports = {
-  title: 'VuePress1.x',
+  title: 'vue-press',
   description: description,
 
   head: [
@@ -37,7 +37,7 @@ module.exports = {
         sidebarDepth: 1,
         children: [
           '/markdown/',
-          { title: 'article', path: 'markdown/article/01.md' },
+          { title: 'extends', path: 'markdown/article/01.md' },
         ],
         initialOpenGroupIndex: 1,
       },
