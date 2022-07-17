@@ -7,7 +7,7 @@
     "docs:export": "press-export-pdf export docs"
   },
   "dependencies": {
-    "@condorhero/vuepress-plugin-export-pdf": "workspace:^0.0.0"
+    "@condorhero/vuepress-plugin-export-pdf": "workspace:^"
   },
   "devDependencies": {
     "vuepress": "^1.9.7"
