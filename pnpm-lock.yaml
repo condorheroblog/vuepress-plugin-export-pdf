@@ -29,12 +29,14 @@ importers:
   packages/vuepress-plugin-export-pdf:
     specifiers:
       '@vuepress/utils': ^2.0.0-alpha.1
+      bundle-require: ^3.0.4
       cac: ^6.7.12
       pdfjs: ^2.4.7
       puppeteer: ^15.4.0
       vuepress: ^1.9.7
     dependencies:
       '@vuepress/utils': registry.npmmirror.com/@vuepress/utils/2.0.0-alpha.1
+      bundle-require: registry.npmmirror.com/bundle-require/3.0.4_esbuild@0.14.49
       cac: registry.npmmirror.com/cac/6.7.12
       pdfjs: registry.npmmirror.com/pdfjs/2.4.7
       puppeteer: registry.npmmirror.com/puppeteer/15.4.0
@@ -4042,6 +4044,19 @@ packages:
       esbuild: registry.npmmirror.com/esbuild/0.14.7
     dev: true
 
+  registry.npmmirror.com/bundle-require/3.0.4_esbuild@0.14.49:
+    resolution: {integrity: sha512-VXG6epB1yrLAvWVQpl92qF347/UXmncQj7J3U8kZEbdVZ1ZkQyr4hYeL/9RvcE8vVVdp53dY78Fd/3pqfRqI1A==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/bundle-require/-/bundle-require-3.0.4.tgz}
+    id: registry.npmmirror.com/bundle-require/3.0.4
+    name: bundle-require
+    version: 3.0.4
+    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
+    peerDependencies:
+      esbuild: '>=0.13'
+    dependencies:
+      esbuild: registry.npmmirror.com/esbuild/0.14.49
+      load-tsconfig: registry.npmmirror.com/load-tsconfig/0.2.3
+    dev: false
+
   registry.npmmirror.com/bytes/3.0.0:
     resolution: {integrity: sha512-pMhOfFDPiv9t5jjIXkHosWmkSyQbvsgEVNkz0ERHbuLh2T/7j4Mqqpz523Fe8MVY89KC6Sh/QfS2sM+SjgFDcw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/bytes/-/bytes-3.0.0.tgz}
     name: bytes
@@ -6069,7 +6084,6 @@ packages:
     cpu: [x64]
     os: [android]
     requiresBuild: true
-    dev: true
     optional: true
 
   registry.npmmirror.com/esbuild-android-arm64/0.14.49:
@@ -6080,7 +6094,6 @@ packages:
     cpu: [arm64]
     os: [android]
     requiresBuild: true
-    dev: true
     optional: true
 
   registry.npmmirror.com/esbuild-android-arm64/0.14.7:
@@ -6101,7 +6114,6 @@ packages:
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
-    dev: true
     optional: true
 
   registry.npmmirror.com/esbuild-darwin-64/0.14.7:
@@ -6122,7 +6134,6 @@ packages:
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
-    dev: true
     optional: true
 
   registry.npmmirror.com/esbuild-darwin-arm64/0.14.7:
@@ -6143,7 +6154,6 @@ packages:
     cpu: [x64]
     os: [freebsd]
     requiresBuild: true
-    dev: true
     optional: true
 
   registry.npmmirror.com/esbuild-freebsd-64/0.14.7:
@@ -6164,7 +6174,6 @@ packages:
     cpu: [arm64]
     os: [freebsd]
     requiresBuild: true
-    dev: true
     optional: true
 
   registry.npmmirror.com/esbuild-freebsd-arm64/0.14.7:
@@ -6185,7 +6194,6 @@ packages:
     cpu: [ia32]
     os: [linux]
     requiresBuild: true
-    dev: true
     optional: true
 
   registry.npmmirror.com/esbuild-linux-32/0.14.7:
@@ -6206,7 +6214,6 @@ packages:
     cpu: [x64]
     os: [linux]
     requiresBuild: true
-    dev: true
     optional: true
 
   registry.npmmirror.com/esbuild-linux-64/0.14.7:
@@ -6227,7 +6234,6 @@ packages:
     cpu: [arm]
     os: [linux]
     requiresBuild: true
-    dev: true
     optional: true
 
   registry.npmmirror.com/esbuild-linux-arm/0.14.7:
@@ -6248,7 +6254,6 @@ packages:
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
-    dev: true
     optional: true
 
   registry.npmmirror.com/esbuild-linux-arm64/0.14.7:
@@ -6269,7 +6274,6 @@ packages:
     cpu: [mips64el]
     os: [linux]
     requiresBuild: true
-    dev: true
     optional: true
 
   registry.npmmirror.com/esbuild-linux-mips64le/0.14.7:
@@ -6290,7 +6294,6 @@ packages:
     cpu: [ppc64]
     os: [linux]
     requiresBuild: true
-    dev: true
     optional: true
 
   registry.npmmirror.com/esbuild-linux-ppc64le/0.14.7:
@@ -6311,7 +6314,6 @@ packages:
     cpu: [riscv64]
     os: [linux]
     requiresBuild: true
-    dev: true
     optional: true
 
   registry.npmmirror.com/esbuild-linux-s390x/0.14.49:
@@ -6322,7 +6324,6 @@ packages:
     cpu: [s390x]
     os: [linux]
     requiresBuild: true
-    dev: true
     optional: true
 
   registry.npmmirror.com/esbuild-netbsd-64/0.14.49:
@@ -6333,7 +6334,6 @@ packages:
     cpu: [x64]
     os: [netbsd]
     requiresBuild: true
-    dev: true
     optional: true
 
   registry.npmmirror.com/esbuild-netbsd-64/0.14.7:
@@ -6354,7 +6354,6 @@ packages:
     cpu: [x64]
     os: [openbsd]
     requiresBuild: true
-    dev: true
     optional: true
 
   registry.npmmirror.com/esbuild-openbsd-64/0.14.7:
@@ -6375,7 +6374,6 @@ packages:
     cpu: [x64]
     os: [sunos]
     requiresBuild: true
-    dev: true
     optional: true
 
   registry.npmmirror.com/esbuild-sunos-64/0.14.7:
@@ -6396,7 +6394,6 @@ packages:
     cpu: [ia32]
     os: [win32]
     requiresBuild: true
-    dev: true
     optional: true
 
   registry.npmmirror.com/esbuild-windows-32/0.14.7:
@@ -6417,7 +6414,6 @@ packages:
     cpu: [x64]
     os: [win32]
     requiresBuild: true
-    dev: true
     optional: true
 
   registry.npmmirror.com/esbuild-windows-64/0.14.7:
@@ -6438,7 +6434,6 @@ packages:
     cpu: [arm64]
     os: [win32]
     requiresBuild: true
-    dev: true
     optional: true
 
   registry.npmmirror.com/esbuild-windows-arm64/0.14.7:
@@ -6479,7 +6474,6 @@ packages:
       esbuild-windows-32: registry.npmmirror.com/esbuild-windows-32/0.14.49
       esbuild-windows-64: registry.npmmirror.com/esbuild-windows-64/0.14.49
       esbuild-windows-arm64: registry.npmmirror.com/esbuild-windows-arm64/0.14.49
-    dev: true
 
   registry.npmmirror.com/esbuild/0.14.7:
     resolution: {integrity: sha512-+u/msd6iu+HvfysUPkZ9VHm83LImmSNnecYPfFI01pQ7TTcsFR+V0BkybZX7mPtIaI7LCrse6YRj+v3eraJSgw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/esbuild/-/esbuild-0.14.7.tgz}
@@ -9466,6 +9460,13 @@ packages:
     name: load-script
     version: 1.0.0
     dev: true
+
+  registry.npmmirror.com/load-tsconfig/0.2.3:
+    resolution: {integrity: sha512-iyT2MXws+dc2Wi6o3grCFtGXpeMvHmJqS27sMPGtV2eUu4PeFnG+33I8BlFK1t1NWMjOpcx9bridn5yxLDX2gQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/load-tsconfig/-/load-tsconfig-0.2.3.tgz}
+    name: load-tsconfig
+    version: 0.2.3
+    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
+    dev: false
 
   registry.npmmirror.com/loader-runner/2.4.0:
     resolution: {integrity: sha512-Jsmr89RcXGIwivFY21FcRrisYZfvLMTWx5kOLc+JTxtpBOG6xML0vzbc6SEQG2FO9/4Fc3wW4LVcB5DmGflaRw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/loader-runner/-/loader-runner-2.4.0.tgz}

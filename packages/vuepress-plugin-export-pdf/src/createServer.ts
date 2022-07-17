@@ -5,6 +5,7 @@ import { chalk, logger, path } from "@vuepress/utils";
 import { dev } from "vuepress";
 import { generatePdf } from "./generatePdf";
 import { timerTransformer } from "./utils";
+import loadConfig from "./loadConfig";
 
 const { red, cyanBright } = chalk;
 const { join } = path;
@@ -27,11 +28,14 @@ export const createServer = async(dir = "docs", options: Record<string, any> = {
 
   logger.tip("Start to generate current site to PDF ...");
 
+  const { config } = options;
+
   const {
     sorter,
     puppeteerLaunchOptions,
     pageOptions,
-  } = options;
+    outputFileName,
+  } = await loadConfig(process.cwd(), config);
 
   try {
     await generatePdf(devContext, {
@@ -42,7 +46,7 @@ export const createServer = async(dir = "docs", options: Record<string, any> = {
        * @see https://github.com/vuejs/vuepress/commit/4d5c50e
       */
       host: devContext.devProcess.displayHost,
-      outputFileName: `vuepress-${timerTransformer()}.pdf`,
+      outputFileName: outputFileName ?? `vuepress-${timerTransformer()}.pdf`,
       sorter,
       puppeteerLaunchOptions,
       pageOptions,

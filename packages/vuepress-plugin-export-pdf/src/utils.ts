@@ -13,5 +13,5 @@ export const wrapCommand = (cmd: (...args: any[]) => Promise<void>): typeof cmd 
 };
 
 export function timerTransformer(timestamp = new Date(), lang = "cn", dateOptions = {}) {
-  return new Date(timestamp).toLocaleString(lang, dateOptions).replaceAll(/(\/|\:|)/g, "").replace("\s", "-");
+  return new Date(timestamp).toLocaleString(lang, dateOptions).replaceAll(/(\/|\:|)/g, "").replace(/\s/, "-");
 }

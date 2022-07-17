@@ -1,14 +1,15 @@
 import { chalk, fs, logger, path } from "@vuepress/utils";
 import puppeteer from "puppeteer";
+import type { PDFOptions, PuppeteerLaunchOptions } from "puppeteer";
 import pdf from "pdfjs";
 
 interface iGeneratePdfOptions {
   port: number
   host: string
-  sorter: undefined
   outputFileName: string
-  puppeteerLaunchOptions: object
-  pageOptions: object
+  sorter?: (a: any, b: any) => number
+  puppeteerLaunchOptions?: PuppeteerLaunchOptions
+  pageOptions?: PDFOptions
 }
 
 interface IPages {
