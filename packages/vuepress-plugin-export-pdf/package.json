@@ -43,6 +43,10 @@
     "node": ">=8.6"
   },
   "homepage": "https://github.com/condorheroblog/vuepress-plugin#readme",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
   "dependencies": {
     "@vuepress/utils": "^2.0.0-alpha.1",
     "bundle-require": "^3.0.4",
