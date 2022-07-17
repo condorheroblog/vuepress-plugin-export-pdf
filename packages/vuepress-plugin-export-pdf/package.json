@@ -1,7 +1,7 @@
 {
   "name": "@condorhero/vuepress-plugin-export-pdf",
   "type": "module",
-  "version": "0.0.0",
+  "version": "0.0.1-beta.0",
   "description": "Vuepress plugin exports PDF 📁.",
   "keywords": [
     "vuepress-plugin-export-pdf",
