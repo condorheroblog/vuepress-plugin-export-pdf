@@ -50,6 +50,13 @@ There are four command lines included:
 - `help`: Display help information
 - `--debug`: Enable debug mode
 
+## Config options
+
+- `theme` - theme name (default `@vuepress/default`)
+- `sorter` - function for changing pages order (default `undefined`)
+- `outputFileName` - name of output file (default `vuepress-YYMMDD-HHmmss.pdf`)
+- `puppeteerLaunchOptions` - [Puppeteer launch options object](https://github.com/puppeteer/puppeteer/blob/v2.1.1/docs/api.md#puppeteerlaunchoptions) (default `{}`)
+- `pageOptions` - [Puppeteer page formatting options object](https://github.com/puppeteer/puppeteer/blob/v2.1.1/docs/api.md#pagepdfoptions) (default `{format: 'A4'}`)
 
 ## PDF print style
 
