@@ -13,10 +13,20 @@ const { join } = path;
 export const createServer = async(dir = "docs", options: Record<string, any> = {}) => {
   dir = join(process.cwd(), dir);
 
+  const { config, theme } = options;
+
+  const {
+    sorter,
+    puppeteerLaunchOptions,
+    pageOptions,
+    outputFileName,
+    themeConfig = "@vuepress/default",
+  } = await loadConfig(process.cwd(), config);
+
   const devContext = await dev({
     sourceDir: dir,
     clearScreen: false,
-    theme: "@vuepress/default",
+    theme: theme ?? themeConfig,
   });
 
   await new Promise((resolve) => {
@@ -27,15 +37,6 @@ export const createServer = async(dir = "docs", options: Record<string, any> = {
   });
 
   logger.tip("Start to generate current site to PDF ...");
-
-  const { config } = options;
-
-  const {
-    sorter,
-    puppeteerLaunchOptions,
-    pageOptions,
-    outputFileName,
-  } = await loadConfig(process.cwd(), config);
 
   try {
     await generatePdf(devContext, {

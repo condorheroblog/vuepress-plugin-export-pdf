@@ -24,6 +24,7 @@ export async function parseConfig(configPath: string) {
 */
 
 export default function loadConfig(vuepressDir: string, config: string): Promise<{
+  themeConfig: string
   puppeteerLaunchOptions?: PuppeteerLaunchOptions
   pageOptions?: PDFOptions
   outputFileName?: string
