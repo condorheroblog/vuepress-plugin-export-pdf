@@ -81,3 +81,8 @@ dist
 .idea
 
 *.lerna_backup
+
+# VuePress files
+**/.vuepress/.temp/
+**/.vuepress/.cache/
+**/.vuepress/dist/
