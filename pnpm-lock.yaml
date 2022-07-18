@@ -43,23 +43,23 @@ importers:
     devDependencies:
       vuepress: registry.npmmirror.com/vuepress/1.9.7
 
-  packages/vuepress-plugin-export-pdf/vue-press:
+  packages/vuepress-plugin-export-pdf/example/vue-press:
     specifiers:
       '@condorhero/vuepress-plugin-export-pdf': workspace:^
       vuepress: ^1.9.7
     dependencies:
-      '@condorhero/vuepress-plugin-export-pdf': link:..
+      '@condorhero/vuepress-plugin-export-pdf': link:../..
     devDependencies:
       vuepress: registry.npmmirror.com/vuepress/1.9.7
 
-  packages/vuepress-plugin-export-pdf/vuepress-next:
+  packages/vuepress-plugin-export-pdf/example/vuepress-next:
     specifiers:
       '@condorhero/vuepress-plugin-export-pdf': workspace:^
       '@vuepress/client': ^2.0.0-beta.49
       vue: ^3.2.37
       vuepress: ^2.0.0-beta.49
     dependencies:
-      '@condorhero/vuepress-plugin-export-pdf': link:..
+      '@condorhero/vuepress-plugin-export-pdf': link:../..
     devDependencies:
       '@vuepress/client': registry.npmmirror.com/@vuepress/client/2.0.0-beta.49
       vue: registry.npmmirror.com/vue/3.2.37
