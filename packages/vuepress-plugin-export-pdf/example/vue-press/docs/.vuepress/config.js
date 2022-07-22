@@ -43,4 +43,9 @@ module.exports = {
       },
     ],
   },
+  // plugins: [[require("./vuepress-plugin-export-pdf.js"), {
+  //   name: 'vuepress-plugin-export-pdf', sorter: (a, b) => {
+  //     return a - b;
+  //   }
+  // }]],
 }

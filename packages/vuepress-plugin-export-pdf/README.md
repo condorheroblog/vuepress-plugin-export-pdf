@@ -9,9 +9,6 @@
     <a href="https://www.npmjs.com/package/@condorhero/vuepress-plugin-export-pdf" target="__blank">
         <img alt="NPM Downloads" src="https://img.shields.io/npm/dm/@condorhero/vuepress-plugin-export-pdf.svg?color=50a36f">
     </a>
-    <a href="https://packagephobia.now.sh/result?p=@condorhero/vuepress-plugin-export-pdf" target="__blank">
-        <img alt="install size" src="https://badgen.net/packagephobia/install/@condorhero/vuepress-plugin-export-pdf">
-    </a>
     <br />
 </p>
 
@@ -27,7 +24,7 @@ then add script to your `package.json`:
 ```json
 {
   "scripts": {
-    "export-pdf": "press-plugin-export-pdf export [path/to/your/docs]"
+    "export-pdf": "press-export-pdf export [path/to/your/docs]"
   }
 }
 ```
@@ -39,24 +36,79 @@ npm run export-pdf
 ```
 ## Usage
 
-There are four command lines included:
+### press-export-pdf
+
+The package provides the `press-export-pdf` command with the following command line options:
 
 ![vuepress-plugin-export-pdf.png](./assets/vuepress-plugin-export-pdf.png)
 
 - `export [sourceDir]`: Export your site to a PDF file
-- `-c, --config <config>`: Set path to config file
+  - `-c, --config <config>`: Set path to config file
+  - `--outFile <outFile>`: Name of output file
+  - `--outDir <outDir>`: Directory of output files
+  - `--theme <theme>`: Set VuePress theme
+  - `--debug`: Enable debug mode
 - `info`: Display environment information
-- `version`: Display version information
-- `help`: Display help information
-- `--debug`: Enable debug mode
+- `--help`: Display help information
+- `--version`: Display version information
+
+### Via VuePress plugin
+
+`@condorhero/vuepress-plugin-export-pdf` exports a function called vuepressplugin, then use this function through VuePress plugin system.
+
+for example:
+
+```js
+module.exports = {
+  plugins: [
+    require("./my-plugin.js"),
+  ],
+};
+```
+
+`my-plugin.js`:
+
+```js
+const { vuePressPlugin } = require("@condorhero/vuepress-plugin-export-pdf");
+module.exports = vuePressPlugin;
+```
 
 ## Config options
 
+You can create a new config file, we support the following files:
+
+- `vuepress-pdf.config.ts`
+- `vuepress-pdf.config.js`
+- `vuepress-pdf.config.cjs`
+- `vuepress-pdf.config.mjs`
+- `.vuepress/vuepress-pdf.config.ts`
+- `.vuepress/vuepress-pdf.config.js`
+- `.vuepress/vuepress-pdf.config.cjs`
+- `.vuepress/vuepress-pdf.config.mjs`
+
+In addition, you can also customize the configuration file through `--config` or `-c`.
+
+It is recommended to use TS(`.vuepress/vuepress-pdf.config.ts`) files, which are easy to manage and have **friendly code prompts**.
+
+ex:
+
+```ts
+// .vuepress/vuepress-pdf.config.ts
+import { defineUserConfig } from "@condorhero/vuepress-plugin-export-pdf";
+
+export default defineUserConfig({
+  theme: "@vuepress/theme-default",
+});
+```
+
+config options:
+
 - `theme` - theme name (default `@vuepress/default`)
 - `sorter` - function for changing pages order (default `undefined`)
-- `outputFileName` - name of output file (default `vuepress-YYMMDD-HHmmss.pdf`)
-- `puppeteerLaunchOptions` - [Puppeteer launch options object](https://github.com/puppeteer/puppeteer/blob/v2.1.1/docs/api.md#puppeteerlaunchoptions) (default `{}`)
-- `pageOptions` - [Puppeteer page formatting options object](https://github.com/puppeteer/puppeteer/blob/v2.1.1/docs/api.md#pagepdfoptions) (default `{format: 'A4'}`)
+- `outFile` - name of output file (default `vuepress-YYMMDD-HHmmss.pdf`)
+- `outDir` - Directory of output files (default `package.json` file exists in directory)
+- `puppeteerLaunchOptions` - [Puppeteer launch options object](https://github.com/puppeteer/puppeteer/blob/main/docs/api/puppeteer.puppeteerlaunchoptions.md)
+- `pdfOptions` - [Valid options to configure PDF generation via Page.pdf()](https://github.com/puppeteer/puppeteer/blob/main/docs/api/puppeteer.pdfoptions.md) (default `{ format: 'A4 }`)
 
 ## PDF print style
 
@@ -89,6 +141,10 @@ for example:
 3. Commit your changes: git commit -am 'Add some feature'
 4. Push to the branch: git push origin my-new-feature
 5. Submit a pull request :D
+
+## Report Bug
+
+run `vuepress info` or `press-export-pdf info` Shows debugging information about the local environment.
 
 ## License
 

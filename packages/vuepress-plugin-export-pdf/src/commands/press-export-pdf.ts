@@ -1,9 +1,11 @@
-
 /**
 * press-export-pdf cli
 */
 
-import { runCli } from "../runner";
-import { pressExportCli } from "../cli";
+import { afterParse, beforeParse, runCli } from "../runner";
 
-runCli(pressExportCli);
+runCli(
+  "press-export-pdf",
+  beforeParse,
+  afterParse,
+);

@@ -1,0 +1,44 @@
+{
+  "name": "@condorhero/vuepress-types",
+  "version": "0.0.1-beta.0",
+  "description": "VuePress TypeScript helpers for 1.x",
+  "keywords": [
+    "types",
+    "vuepress",
+    "vuepress-types"
+  ],
+  "homepage": "https://github.com/condorheroblog/vuepress-plugin#readme",
+  "bugs": {
+    "url": "https://github.com/condorheroblog/vuepress-plugin/issues"
+  },
+  "license": "MIT",
+  "author": "CondorHero",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/condorheroblog/vuepress-plugin.git",
+    "directory": "packages/vuepress-types"
+  },
+  "types": "types/index.d.ts",
+  "files": [
+    "types"
+  ],
+  "scripts": {
+    "lint": "eslint --ext .ts types"
+  },
+  "peerDependencies": {
+    "vuepress": "^1.x"
+  },
+  "dependencies": {
+    "@types/express": "^4.17.1",
+    "@types/markdown-it": "^0.0.8",
+    "@types/webpack-dev-server": "^3.1.7",
+    "cac": "^6.5.10",
+    "markdown-it": "^8.4.1",
+    "vue": "^2.6.10",
+    "vue-loader": "^15.7.1",
+    "vue-router": "^3.5.4",
+    "webpack": "^4.8.1",
+    "webpack-chain": "^6.0.0",
+    "webpack-dev-server": "^3.5.1"
+  }
+}

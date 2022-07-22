@@ -8,7 +8,9 @@
   Vuepress plugin I wrote
 </p>
 
-## plugins
+## Plugins
+
+- [@condorhero/vuepress-plugin-export-pdf](https://github.com/condorheroblog/vuepress-plugin/blob/main/packages/vuepress-plugin-export-pdf/README.md)
 
 go to [packages](https://github.com/condorheroblog/vuepress-plugin/blob/main/packages) folder.
 
