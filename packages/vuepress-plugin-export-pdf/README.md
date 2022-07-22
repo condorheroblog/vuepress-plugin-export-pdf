@@ -17,7 +17,7 @@
 ## Installation
 
 ```sh
-npm install @condorhero/vuepress-plugin-export-pdf
+npm install @condorhero/vuepress-plugin-export-pdf -D
 ```
 then add script to your `package.json`:
 
