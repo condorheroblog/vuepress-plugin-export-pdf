@@ -25,6 +25,10 @@
   "scripts": {
     "lint": "eslint --ext .ts types"
   },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
   "peerDependencies": {
     "vuepress": "^1.x"
   },
