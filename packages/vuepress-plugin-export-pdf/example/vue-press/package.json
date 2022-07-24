@@ -14,15 +14,8 @@
     "docs:debug": "press-export-pdf export docs --debug",
     "docs:export": "press-export-pdf export docs"
   },
-  "dependencies": {
-    "@condorhero/vuepress-plugin-export-pdf": "workspace:^",
-    "@vuepress/utils": "2.0.0-beta.24",
-    "envinfo": "^7.8.1",
-    "semver": "^7.3.7"
-  },
   "devDependencies": {
-    "@types/envinfo": "^7.8.1",
-    "@types/semver": "^7.3.10",
+    "@condorhero/vuepress-plugin-export-pdf": "workspace:^",
     "vuepress": "^1.9.7"
   }
 }

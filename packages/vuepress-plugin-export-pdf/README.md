@@ -1,5 +1,7 @@
 # @condorhero/vuepress-plugin-export-pdf
 
+> If you are using `VuePress2.x`, please use [vuepress-plugin-export-pdf-v2](https://github.com/condorheroblog/vuepress-plugin/blob/main/packages/vuepress-plugin-export-pdf-v2/README.md)
+
 `@condorhero/vuepress-plugin-export-pdf` is a VuePress plugin that allows you to export your sites to a PDF file.
 
 <p align="center">
