@@ -11,6 +11,7 @@
 ## Plugins
 
 - [@condorhero/vuepress-plugin-export-pdf](https://github.com/condorheroblog/vuepress-plugin/blob/main/packages/vuepress-plugin-export-pdf/README.md)
+- [@condorhero/vuepress-plugin-export-pdf-v2](https://github.com/condorheroblog/vuepress-plugin/blob/main/packages/vuepress-plugin-export-pdf-v2/README.md)
 
 go to [packages](https://github.com/condorheroblog/vuepress-plugin/blob/main/packages) folder.
 

@@ -1,3 +1,4 @@
 packages:
   - packages/*
   - packages/vuepress-plugin-export-pdf/example/vue-press
+  - packages/vuepress-plugin-export-pdf-v2/example/vuepress-next

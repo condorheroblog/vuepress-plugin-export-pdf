@@ -31,7 +31,8 @@
   "homepage": "https://github.com/condorheroblog/vuepress-plugin#readme",
   "workspaces": [
     "packages/*",
-    "packages/vuepress-plugin-export-pdf/example/vue-press"
+    "packages/vuepress-plugin-export-pdf/example/vue-press",
+    "packages/vuepress-plugin-export-pdf-v2/example/vuepress-next"
   ],
   "devDependencies": {
     "@condorhero/eslint-config-typescript": "^0.1.5",
