@@ -52,9 +52,9 @@ export const generatePdf = async(ctx: Context, {
   });
 
   const browser = await puppeteer.launch(puppeteerLaunchOptions);
-  const browserPage = await browser.newPage();
 
   for (const { location, pagePath, url, title } of normalizePages) {
+    const browserPage = await browser.newPage();
     browserPage.setDefaultNavigationTimeout(0);
 
     await browserPage.goto(
@@ -71,6 +71,8 @@ export const generatePdf = async(ctx: Context, {
     const pathUrl = gray(`${url}`);
 
     logger.success(`Generated ${yellow(title)} ${pathUrl}`);
+
+    browserPage.close();
   }
 
   await mergePDF(normalizePages, outFile, outDir);
