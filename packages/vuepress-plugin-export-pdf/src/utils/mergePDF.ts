@@ -36,7 +36,9 @@ export const mergePDF = async(pages: IPage[], outFile: string, outDir: string) =
         outDir && fs.ensureDirSync(saveDirPath);
         const saveFilePath = path.join(saveDirPath, outFile);
         fs.writeFileSync(saveFilePath, data, { encoding: "binary" });
-        logger.success(`Export ${yellow(saveFilePath)} file!`);
+
+        const relativePath = path.relative(process.cwd(), saveFilePath);
+        logger.success(`Export ${yellow(relativePath)} file!`);
         resolve(true);
       }
     });
