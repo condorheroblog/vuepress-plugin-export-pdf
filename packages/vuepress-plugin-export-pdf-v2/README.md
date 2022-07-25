@@ -88,6 +88,7 @@ config options:
 - `sorter` - function for changing pages order (default `undefined`)
 - `outFile` - name of output file (default `vuepress-YYMMDD-HHmmss.pdf`)
 - `outDir` - Directory of output files (default `package.json` file exists in directory)
+- `routePatterns` - Specify the patterns of files you want to be exported. The patterns are relative to the source directory (default `["/**", "!/404.html"]`).Patterns to match Route path using [multimatch](https://github.com/sindresorhus/multimatch)
 - `puppeteerLaunchOptions` - [Puppeteer launch options object](https://github.com/puppeteer/puppeteer/blob/main/docs/api/puppeteer.puppeteerlaunchoptions.md)
 - `pdfOptions` - [Valid options to configure PDF generation via Page.pdf()](https://github.com/puppeteer/puppeteer/blob/main/docs/api/puppeteer.pdfoptions.md) (default `{ format: 'A4 }`)
 
@@ -114,6 +115,20 @@ for example:
 ```
 
 ![print-style.png](./assets/print-style.png)
+
+## Examples
+
+### Don't export homepage
+
+`.vuepress/vuepress-pdf.config.ts` add `routePatterns`:
+
+```ts
+export default defineUserConfig({
+  routePatterns: ["!/"],
+});
+```
+
+> Note: `!` at the beginning of a pattern will negate the match
 
 ## Contributing
 

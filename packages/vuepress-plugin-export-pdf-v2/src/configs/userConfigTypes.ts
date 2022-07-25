@@ -11,6 +11,7 @@ export interface UserConfig {
   bundler?: Bundler
   sorter?: UserSorter
   puppeteerLaunchOptions?: PuppeteerLaunchOptions
+  routePatterns?: string[]
   pdfOptions?: PDFOptions
   outFile?: string
   outDir?: string

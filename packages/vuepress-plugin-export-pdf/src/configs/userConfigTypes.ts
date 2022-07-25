@@ -10,6 +10,7 @@ export interface UserConfig {
   theme?: string
   sorter?: UserSorter
   puppeteerLaunchOptions?: PuppeteerLaunchOptions
+  routePatterns?: string[]
   pdfOptions?: PDFOptions
   outFile?: string
   outDir?: string

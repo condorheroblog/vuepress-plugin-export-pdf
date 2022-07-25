@@ -4,6 +4,7 @@ import { chalk, fs, logger, path } from "@vuepress/utils";
 import puppeteer from "puppeteer";
 import type { UserSorter } from "../configs";
 
+import { filterRoute } from "../utils";
 import { mergePDF } from "./mergePDF";
 
 interface IGeneratePdfOptions {
@@ -11,6 +12,7 @@ interface IGeneratePdfOptions {
   host: string
   outFile: string
   outDir: string
+  routePatterns: string[]
   sorter?: UserSorter
   puppeteerLaunchOptions?: PuppeteerLaunchOptions
   pdfOptions?: PDFOptions
@@ -32,12 +34,13 @@ export const generatePdf = async(ctx: DevApp, {
   outDir,
   puppeteerLaunchOptions,
   pdfOptions,
+  routePatterns,
 }: IGeneratePdfOptions) => {
   const { pages, options: { temp: tempPath } } = ctx;
   const tempPdfDir = join(tempPath, "pdf");
   fs.ensureDirSync(tempPdfDir);
 
-  let exportPages = pages.slice(0);
+  let exportPages = filterRoute(pages, routePatterns);
 
   if (typeof sorter === "function")
     exportPages = exportPages.sort(sorter);

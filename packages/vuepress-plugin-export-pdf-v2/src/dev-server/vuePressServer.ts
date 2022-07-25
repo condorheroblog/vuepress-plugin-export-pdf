@@ -37,6 +37,12 @@ export const vuePressServer = async(dir = "docs", commandOptions: CommandOptions
   if (userConfigPath)
     userConfig = await loadModule(userConfigPath);
 
+  // set default routePatterns
+  if (Array.isArray(userConfig.routePatterns))
+    userConfig.routePatterns = ["/**", "!/404.html", ...userConfig.routePatterns];
+  else
+    userConfig.routePatterns = ["/**", "!/404.html"];
+
   const vuepressOutFile = commandOptions.outFile ?? `vuepress-${timeTransformer()}.pdf`;
   const vuepressOutDir = commandOptions.outDir ?? ".";
 
@@ -50,6 +56,7 @@ export const vuePressServer = async(dir = "docs", commandOptions: CommandOptions
     pdfOptions,
     outFile = vuepressOutFile,
     outDir = vuepressOutDir,
+    routePatterns,
   } = userConfig;
 
   const devApp = createDevApp({ source: sourceDir, bundler, theme, host: "localhost", port: 8714 });
@@ -73,6 +80,7 @@ export const vuePressServer = async(dir = "docs", commandOptions: CommandOptions
       sorter,
       puppeteerLaunchOptions,
       pdfOptions,
+      routePatterns,
     });
   }
   catch (error) {
