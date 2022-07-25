@@ -55,6 +55,7 @@
     "@vuepress/utils": "2.0.0-beta.24",
     "bundle-require": "^3.0.4",
     "cac": "^6.7.12",
+    "cli-progress": "^3.11.2",
     "debug": "^4.3.4",
     "envinfo": "^7.8.1",
     "multimatch": "^6.0.0",
@@ -63,6 +64,7 @@
     "semver": "^7.3.7"
   },
   "devDependencies": {
+    "@types/cli-progress": "^3.11.0",
     "@types/envinfo": "^7.8.1",
     "@types/semver": "^7.3.10",
     "vuepress": "^2.0.0-beta.49"

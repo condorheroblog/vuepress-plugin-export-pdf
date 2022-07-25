@@ -1,10 +1,10 @@
 import type { DevApp } from "vuepress";
 import type { PDFOptions, PuppeteerLaunchOptions } from "puppeteer";
-import { chalk, fs, logger, path } from "@vuepress/utils";
+import { chalk, fs, path } from "@vuepress/utils";
 import puppeteer from "puppeteer";
 import type { UserSorter } from "../configs";
 
-import { filterRoute } from "../utils";
+import { filterRoute, singleProgressBar } from "../utils";
 import { mergePDF } from "./mergePDF";
 
 interface IGeneratePdfOptions {
@@ -54,6 +54,9 @@ export const generatePdf = async(ctx: DevApp, {
     };
   });
 
+  const singleBar = singleProgressBar(`Generated Progress [{bar}] {percentage}%({value}/{total}) || ${yellow("{title}")} ${gray("{url}")}`);
+  singleBar.start(normalizePages.length, 0);
+
   const browser = await puppeteer.launch(puppeteerLaunchOptions);
 
   for (const { location, pagePath, url, title } of normalizePages) {
@@ -71,13 +74,15 @@ export const generatePdf = async(ctx: DevApp, {
       ...pdfOptions,
     });
 
-    const pathUrl = gray(`${url}`);
-
-    logger.success(`Generated ${yellow(title)} ${pathUrl}`);
-
     browserPage.close();
+
+    singleBar.increment(1, {
+      title,
+      url,
+    });
   }
 
+  singleBar.stop();
   await mergePDF(normalizePages, outFile, outDir);
 
   await browser.close();
