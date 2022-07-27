@@ -7,7 +7,6 @@ import { wrapCommand } from "./utils";
 /**
  * registerCommands
  * @param program - CAC
- * @param userConfig - User config
  */
 export const registerCommands = (program: CAC) => {
   // register `export` command
