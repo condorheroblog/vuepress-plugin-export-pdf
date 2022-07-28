@@ -56,7 +56,7 @@ export const generatePdf = async(ctx: DevApp, {
     };
   });
 
-  const singleBar = singleProgressBar(`Generated Progress [{bar}] {percentage}%({value}/{total}) || ${yellow("{title}")} ${gray("{url}")}`);
+  const singleBar = singleProgressBar(`Generating {bar} {value}/{total} || ${yellow("{title}")} ${gray("{url}")}`);
   singleBar.start(normalizePages.length, 0);
 
   const browser = await puppeteer.launch(puppeteerLaunchOptions);
