@@ -16,6 +16,11 @@
 
 > Inspired by [vuepress-plugin-export](https://github.com/ulivz/vuepress-plugin-export) and [vuepress-plugin-pdf-export](https://github.com/SnowdogApps/vuepress-plugin-pdf-export)
 
+## Related
+
+- [vitepress-export-pdf](https://github.com/condorheroblog/vitepress-export-pdf)
+- [@condorhero/vuepress-plugin-export-pdf-v2](https://github.com/condorheroblog/vuepress-plugin/blob/main/packages/vuepress-plugin-export-pdf-v2/README.md)
+
 ## Installation
 
 ```sh
@@ -101,6 +106,18 @@ import { defineUserConfig } from "@condorhero/vuepress-plugin-export-pdf";
 export default defineUserConfig({
   theme: "@vuepress/theme-default",
 });
+```
+if you want to use JS files, **you can leverage your IDE's intellisense with jsdoc type hints**:
+
+```js
+/**
+ * @type {import('@condorhero/vuepress-plugin-export-pdf').UserConfig}
+ */
+const config = {
+  // ...
+};
+
+export default config;
 ```
 
 config options:
