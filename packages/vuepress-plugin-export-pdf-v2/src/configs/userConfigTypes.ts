@@ -1,6 +1,7 @@
-import type { PDFOptions, PuppeteerLaunchOptions } from "puppeteer";
+import type { Browser, Page as BrowserPage, PDFOptions, PuppeteerLaunchOptions } from "puppeteer";
 import type { Bundler, Page, Theme } from "vuepress";
 
+export type EnhanceApp = (browser: Browser, browserPage: BrowserPage) => void;
 export type UserSorter = (a: Page, b: Page) => number;
 
 /**
@@ -15,4 +16,5 @@ export interface UserConfig {
   pdfOptions?: PDFOptions
   outFile?: string
   outDir?: string
+  enhanceApp?: EnhanceApp
 }

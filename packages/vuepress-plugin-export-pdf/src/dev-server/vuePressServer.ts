@@ -62,6 +62,7 @@ export const vuePressServer = async(dir = "docs", commandOptions: CommandOptions
     outDir = vuepressOutDir,
     theme = vuepressTheme,
     routePatterns,
+    enhanceApp,
   } = userConfig;
 
   const devContext = await dev({
@@ -94,6 +95,7 @@ export const vuePressServer = async(dir = "docs", commandOptions: CommandOptions
       puppeteerLaunchOptions,
       pdfOptions,
       routePatterns,
+      enhanceApp,
     });
   }
   catch (error) {

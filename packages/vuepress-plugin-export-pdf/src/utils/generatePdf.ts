@@ -2,7 +2,7 @@ import type { Context } from "vuepress";
 import type { PDFOptions, PuppeteerLaunchOptions } from "puppeteer";
 import { chalk, fs, path } from "@vuepress/utils";
 import puppeteer from "puppeteer";
-import type { UserSorter } from "../configs";
+import type { EnhanceApp, UserSorter } from "../configs";
 
 import { filterRoute, singleProgressBar } from "../utils";
 import { mergePDF } from "./mergePDF";
@@ -16,6 +16,7 @@ interface IGeneratePdfOptions {
   sorter?: UserSorter
   puppeteerLaunchOptions?: PuppeteerLaunchOptions
   pdfOptions?: PDFOptions
+  enhanceApp?: EnhanceApp
 }
 
 const { yellow, gray } = chalk;
@@ -35,6 +36,7 @@ export const generatePdf = async(ctx: Context, {
   puppeteerLaunchOptions,
   pdfOptions,
   routePatterns,
+  enhanceApp,
 }: IGeneratePdfOptions) => {
   const { pages, tempPath } = ctx;
   const tempPdfDir = join(tempPath, "pdf");
@@ -61,6 +63,7 @@ export const generatePdf = async(ctx: Context, {
 
   for (const { location, pagePath, url, title } of normalizePages) {
     const browserPage = await browser.newPage();
+    typeof enhanceApp === "function" && enhanceApp(browser, browserPage);
     browserPage.setDefaultNavigationTimeout(0);
 
     await browserPage.goto(

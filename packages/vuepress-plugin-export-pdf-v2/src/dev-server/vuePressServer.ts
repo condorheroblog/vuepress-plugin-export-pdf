@@ -57,6 +57,7 @@ export const vuePressServer = async(dir = "docs", commandOptions: CommandOptions
     outFile = vuepressOutFile,
     outDir = vuepressOutDir,
     routePatterns,
+    enhanceApp,
   } = userConfig;
 
   const devApp = createDevApp({ source: sourceDir, bundler, theme, host: "localhost", port: 8714 });
@@ -81,6 +82,7 @@ export const vuePressServer = async(dir = "docs", commandOptions: CommandOptions
       puppeteerLaunchOptions,
       pdfOptions,
       routePatterns,
+      enhanceApp,
     });
   }
   catch (error) {
