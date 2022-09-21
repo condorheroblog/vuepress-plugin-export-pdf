@@ -59,7 +59,7 @@
     "registry": "https://registry.npmjs.org"
   },
   "peerDependencies": {
-    "vuepress": "2.x"
+    "vuepress": ">=2.0.0-beta.49 <=2.x"
   },
   "dependencies": {
     "@vuepress/utils": "2.0.0-beta.51",
