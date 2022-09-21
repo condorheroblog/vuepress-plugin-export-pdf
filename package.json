@@ -18,7 +18,7 @@
   },
   "scripts": {
     "prepare": "rm -rf .husky && husky install && husky add .husky/pre-commit 'npx lint-staged' && git add .husky/pre-commit",
-    "release": "bumpp package.json packages/*/package.json --commit --push --tag && pnpm -r publish",
+    "release": "bumpp package.json packages/*/package.json && pnpm -r publish",
     "coverage": "vitest run --coverage",
     "preinstall": "npx only-allow pnpm",
     "lint:fix": "eslint . --fix",
@@ -36,14 +36,14 @@
   ],
   "devDependencies": {
     "@condorhero/eslint-config-typescript": "^0.1.5",
-    "bumpp": "^7.2.0",
-    "eslint": "^8.19.0",
+    "bumpp": "^8.2.1",
+    "eslint": "^8.23.1",
     "esno": "^0.16.3",
-    "fast-glob": "^3.2.11",
+    "fast-glob": "^3.2.12",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
-    "typescript": "^4.7.4",
-    "unbuild": "^0.7.4",
-    "vitest": "^0.14.2"
+    "typescript": "^4.8.3",
+    "unbuild": "^0.8.11",
+    "vitest": "^0.23.4"
   }
 }
