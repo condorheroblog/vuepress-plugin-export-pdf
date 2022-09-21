@@ -19,8 +19,17 @@
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./dist/index.d.ts"
+      ]
+    }
+  },
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "require": "./dist/index.cjs",
       "import": "./dist/index.mjs"
     }
@@ -34,6 +43,7 @@
   },
   "scripts": {
     "build": "unbuild",
+    "prepublishOnly": "nr build",
     "dev": "esno ./src/commands/press-export-pdf.ts export ./example/vue-press/docs"
   },
   "bugs": {
@@ -63,7 +73,7 @@
     "semver": "^7.3.7"
   },
   "devDependencies": {
-    "@condorhero/vuepress-types": "workspace:^",
+    "@condorhero/vuepress-types": "^2.0.0",
     "@types/cli-progress": "^3.11.0",
     "@types/debug": "^4.1.7",
     "@types/envinfo": "^7.8.1",

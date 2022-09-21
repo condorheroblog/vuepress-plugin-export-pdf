@@ -28,7 +28,7 @@ importers:
 
   packages/vuepress-plugin-export-pdf:
     specifiers:
-      '@condorhero/vuepress-types': workspace:^
+      '@condorhero/vuepress-types': ^2.0.0
       '@types/cli-progress': ^3.11.0
       '@types/debug': ^4.1.7
       '@types/envinfo': ^7.8.1
@@ -56,7 +56,7 @@ importers:
       puppeteer: registry.npmmirror.com/puppeteer/18.0.3
       semver: registry.npmmirror.com/semver/7.3.7
     devDependencies:
-      '@condorhero/vuepress-types': link:../vuepress-types
+      '@condorhero/vuepress-types': registry.npmmirror.com/@condorhero/vuepress-types/2.0.0_m2ecff2t4e4qzqmkxms56uoshi
       '@types/cli-progress': registry.npmmirror.com/@types/cli-progress/3.11.0
       '@types/debug': registry.npmmirror.com/@types/debug/4.1.7
       '@types/envinfo': registry.npmmirror.com/@types/envinfo/7.8.1
@@ -1841,6 +1841,92 @@ packages:
       - typescript
     dev: true
 
+  registry.npmmirror.com/@condorhero/vuepress-types/2.0.0_m2ecff2t4e4qzqmkxms56uoshi:
+    resolution: {integrity: sha512-JvcwDC2ezkV1rSJH5I0dyA1gx5ml7JwsD/TL8qrnW6vYS+H5XLNT6B5hRXbtM6ZtSIvXCowjZQSgKvEItOdchA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@condorhero/vuepress-types/-/vuepress-types-2.0.0.tgz}
+    id: registry.npmmirror.com/@condorhero/vuepress-types/2.0.0
+    name: '@condorhero/vuepress-types'
+    version: 2.0.0
+    peerDependencies:
+      vuepress: ^1.x
+    dependencies:
+      '@types/express': registry.npmmirror.com/@types/express/4.17.13
+      '@types/markdown-it': registry.npmmirror.com/@types/markdown-it/0.0.8
+      '@types/webpack-dev-server': registry.npmmirror.com/@types/webpack-dev-server/3.11.6_debug@4.3.4
+      cac: registry.npmmirror.com/cac/6.7.14
+      markdown-it: registry.npmmirror.com/markdown-it/8.4.2
+      vue: registry.npmmirror.com/vue/2.7.8
+      vue-loader: registry.npmmirror.com/vue-loader/15.10.0_6slfpyfoznyn5qfepzvlr5rjqu
+      vue-router: registry.npmmirror.com/vue-router/3.5.4_vue@2.7.8
+      vuepress: registry.npmmirror.com/vuepress/1.9.7_debug@4.3.4
+      webpack: registry.npmmirror.com/webpack/4.46.0
+      webpack-chain: registry.npmmirror.com/webpack-chain/6.5.1
+      webpack-dev-server: registry.npmmirror.com/webpack-dev-server/3.11.3_webpack@4.46.0
+    transitivePeerDependencies:
+      - '@vue/compiler-sfc'
+      - arc-templates
+      - atpl
+      - babel-core
+      - bracket-template
+      - bufferutil
+      - cache-loader
+      - coffee-script
+      - css-loader
+      - debug
+      - dot
+      - dust
+      - dustjs-helpers
+      - dustjs-linkedin
+      - eco
+      - ect
+      - ejs
+      - haml-coffee
+      - hamlet
+      - hamljs
+      - handlebars
+      - hogan.js
+      - htmling
+      - jade
+      - jazz
+      - jqtpl
+      - just
+      - liquid-node
+      - liquor
+      - lodash
+      - marko
+      - mote
+      - mustache
+      - nunjucks
+      - plates
+      - pug
+      - qejs
+      - ractive
+      - razor-tmpl
+      - react
+      - react-dom
+      - slm
+      - squirrelly
+      - supports-color
+      - swig
+      - swig-templates
+      - teacup
+      - templayed
+      - then-jade
+      - then-pug
+      - tinyliquid
+      - toffee
+      - twig
+      - twing
+      - underscore
+      - utf-8-validate
+      - vash
+      - velocityjs
+      - vue-template-compiler
+      - walrus
+      - webpack-cli
+      - webpack-command
+      - whiskers
+    dev: true
+
   registry.npmmirror.com/@esbuild-kit/cjs-loader/2.3.1:
     resolution: {integrity: sha512-ov6ALYD9xZSPoo5mmGOQtEC/b0xXeUlPy65p8aHMHLF4DfBEe8Y+iquH2lTDsy6Iskc1uMTadF+SVADTSTNJMA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@esbuild-kit/cjs-loader/-/cjs-loader-2.3.1.tgz}
     name: '@esbuild-kit/cjs-loader'
@@ -2407,7 +2493,6 @@ packages:
     version: 0.0.8
     dependencies:
       '@types/linkify-it': registry.npmmirror.com/@types/linkify-it/3.0.2
-    dev: false
 
   registry.npmmirror.com/@types/markdown-it/10.0.3:
     resolution: {integrity: sha512-daHJk22isOUvNssVGF2zDnnSyxHhFYhtjeX4oQaKD6QzL3ZR1QSgiD1g+Q6/WSWYVogNXYDXODtbgW/WiFCtyw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/markdown-it/-/markdown-it-10.0.3.tgz}
@@ -6156,7 +6241,6 @@ packages:
       postcss-value-parser: registry.npmmirror.com/postcss-value-parser/4.2.0
       semver: registry.npmmirror.com/semver/7.3.7
       webpack: registry.npmmirror.com/webpack/4.46.0
-    dev: false
 
   registry.npmmirror.com/css-parse/2.0.0:
     resolution: {integrity: sha512-UNIFik2RgSbiTwIW1IsFwXWn6vs+bYdq83LKTSOsx7NJR7WII9dxewkHLltfTLVppoUApHV0118a4RZRI9FLwA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/css-parse/-/css-parse-2.0.0.tgz}
@@ -9595,7 +9679,6 @@ packages:
       postcss: ^8.1.0
     dependencies:
       postcss: registry.npmmirror.com/postcss/8.4.16
-    dev: false
 
   registry.npmmirror.com/ieee754/1.2.1:
     resolution: {integrity: sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/ieee754/-/ieee754-1.2.1.tgz}
@@ -12592,7 +12675,6 @@ packages:
       postcss: ^8.1.0
     dependencies:
       postcss: registry.npmmirror.com/postcss/8.4.16
-    dev: false
 
   registry.npmmirror.com/postcss-modules-local-by-default/2.0.6:
     resolution: {integrity: sha512-oLUV5YNkeIBa0yQl7EYnxMgy4N6noxmiwZStaEJUSe2xPMcdNc8WmBQuQCx18H5psYbVxz8zoHk0RAAYZXP9gA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/postcss-modules-local-by-default/-/postcss-modules-local-by-default-2.0.6.tgz}
@@ -12618,7 +12700,6 @@ packages:
       postcss: registry.npmmirror.com/postcss/8.4.16
       postcss-selector-parser: registry.npmmirror.com/postcss-selector-parser/6.0.10
       postcss-value-parser: registry.npmmirror.com/postcss-value-parser/4.2.0
-    dev: false
 
   registry.npmmirror.com/postcss-modules-scope/2.2.0:
     resolution: {integrity: sha512-YyEgsTMRpNd+HmyC7H/mh3y+MeFWevy7V1evVhJWewmMbjDHIbZbOXICC2y+m1xI1UVfIT1HMW/O04Hxyu9oXQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/postcss-modules-scope/-/postcss-modules-scope-2.2.0.tgz}
@@ -12641,7 +12722,6 @@ packages:
     dependencies:
       postcss: registry.npmmirror.com/postcss/8.4.16
       postcss-selector-parser: registry.npmmirror.com/postcss-selector-parser/6.0.10
-    dev: false
 
   registry.npmmirror.com/postcss-modules-values/2.0.0:
     resolution: {integrity: sha512-Ki7JZa7ff1N3EIMlPnGTZfUMe69FFwiQPnVSXC9mnn3jozCRBYIxiZd44yJOV2AmabOo4qFf8s0dC/+lweG7+w==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/postcss-modules-values/-/postcss-modules-values-2.0.0.tgz}
@@ -12663,7 +12743,6 @@ packages:
     dependencies:
       icss-utils: registry.npmmirror.com/icss-utils/5.1.0_postcss@8.4.16
       postcss: registry.npmmirror.com/postcss/8.4.16
-    dev: false
 
   registry.npmmirror.com/postcss-normalize-charset/4.0.1:
     resolution: {integrity: sha512-gMXCrrlWh6G27U0hF3vNvR3w8I1s2wOBILvA87iNXaPvSNo5uZAMYsZG7XjCUf1eVxuPfyL4TJ7++SGZLc9A3g==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/postcss-normalize-charset/-/postcss-normalize-charset-4.0.1.tgz}
@@ -15664,7 +15743,6 @@ packages:
       - velocityjs
       - walrus
       - whiskers
-    dev: false
 
   registry.npmmirror.com/vue-loader/15.10.0_pf2nacutanypibfndeigfabsry:
     resolution: {integrity: sha512-VU6tuO8eKajrFeBzMssFUP9SvakEeeSi1BxdTH5o3+1yUyrldp8IERkSdXlMI2t4kxF2sqYUDsQY+WJBxzBmZg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vue-loader/-/vue-loader-15.10.0.tgz}

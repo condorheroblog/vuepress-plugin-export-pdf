@@ -1,0 +1,10 @@
+
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "vuepress": ["./node_modules/@condorhero/vuepress-types"]
+    }
+  }
+}
