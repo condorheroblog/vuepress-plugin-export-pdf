@@ -1,5 +1,4 @@
 import { join, relative } from "node:path";
-import pc from "picocolors";
 import fse from "fs-extra";
 import pdf from "pdfjs";
 
@@ -15,9 +14,17 @@ interface IPage {
  * @param pages - Pages
  * @param outFile - Output file
  * @param outDir - Output directory
+ * @returns relativePath - Output relative path
  */
 export const mergePDF = async (pages: IPage[], outFile: string, outDir: string) => {
-	await new Promise((resolve) => {
+	const saveDirPath = join(process.cwd(), outDir);
+	outDir && fse.ensureDirSync(saveDirPath);
+	const saveFilePath = join(saveDirPath, outFile);
+
+	if (pages.length === 1) {
+		fse.moveSync(pages[0].pagePath, saveFilePath, { overwrite: true });
+	}
+	else {
 		const mergedPdf = new pdf.Document();
 
 		pages
@@ -27,20 +34,9 @@ export const mergePDF = async (pages: IPage[], outFile: string, outDir: string) 
 				mergedPdf.addPagesOf(page);
 			});
 
-		mergedPdf.asBuffer((err, data) => {
-			if (err) {
-				throw err;
-			}
-			else {
-				const saveDirPath = join(process.cwd(), outDir);
-				outDir && fse.ensureDirSync(saveDirPath);
-				const saveFilePath = join(saveDirPath, outFile);
-				fse.writeFileSync(saveFilePath, data, { encoding: "binary" });
+		const pdfData = await mergedPdf.asBuffer();
+		fse.writeFileSync(saveFilePath, pdfData, { encoding: "binary" });
+	}
 
-				const relativePath = relative(process.cwd(), saveFilePath);
-				process.stdout.write(`Export ${pc.yellow(relativePath)} file!`);
-				resolve(true);
-			}
-		});
-	});
+	return relative(process.cwd(), saveFilePath);
 };

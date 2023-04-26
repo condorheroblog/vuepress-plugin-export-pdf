@@ -1,5 +1,6 @@
 import { join } from "node:path";
 import fse from "fs-extra";
+import pc from "picocolors";
 import { Printer, createProgress, writeFileSafe } from "html-export-pdf-cli";
 import type { LaunchOptions, PDFOptions } from "html-export-pdf-cli";
 
@@ -67,14 +68,17 @@ export const generatePdf = async ({
 		});
 		await writeFileSafe(pagePath, data);
 
-		singleBar.increment(1);
-		singleBar.updateText(title);
+		singleBar.increment(1, { headTitle: title });
 	}
 
 	singleBar.stop();
 	await printer.close();
-	await mergePDF(normalizePages, outFile, outDir);
+
+	const exportedPath = await mergePDF(normalizePages, outFile, outDir);
+	const message = `\nExported to ${pc.yellow(exportedPath)}\n`;
+	process.stdout.write(message);
 
 	fse.removeSync(tempPdfDir);
 	!fse.readdirSync(tempDir).length && fse.removeSync(tempDir);
+	return exportedPath;
 };
