@@ -4,6 +4,6 @@ import pkg from "../../package.json";
 import { vuePressServer } from "./vuePressServer";
 
 export const serverApp = (...args: any[]) => {
-  checkEnv(pkg.engines.node, version);
-  return vuePressServer(...args);
+	checkEnv(pkg.engines.node, version);
+	return vuePressServer(...args);
 };

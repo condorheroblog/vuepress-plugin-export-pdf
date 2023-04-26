@@ -1,4 +1,4 @@
-import type { UserConfig } from "./userConfigTypes";
+import type { UserConfig } from ".";
 
 /**
  * defineUserConfig is a function that defines the user config.

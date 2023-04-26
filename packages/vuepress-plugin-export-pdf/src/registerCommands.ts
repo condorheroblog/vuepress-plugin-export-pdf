@@ -11,21 +11,21 @@ import { wrapCommand } from "./utils";
  * @param userConfig - User config
  */
 export const registerCommands = (program: CAC, userConfig?: UserConfig) => {
-  // register `export` command
-  program
-    .command("export [sourceDir]", "Export current vuepress site to a PDF file(default: docs)")
-    .allowUnknownOptions()
-    .option("-c, --config <config>", "Set path to config file")
-    .option("--theme <theme>", "Set VuePress theme")
-    .option("--outFile <outFile>", "Name of output file")
-    .option("--outDir <outDir>", "Directory of output files")
-    .option("--debug", "Enable debug mode")
-    .action((file: string, config: Record<string, string>) => {
-      wrapCommand(serverApp)(file, config, userConfig);
-    });
+	// register `export` command
+	program
+		.command("export [sourceDir]", "Export current VuePress site to a PDF file(default: docs)")
+		.allowUnknownOptions()
+		.option("-c, --config <config>", "Set path to config file")
+		.option("--theme <theme>", "Set VuePress theme")
+		.option("--outFile <outFile>", "Name of output file")
+		.option("--outDir <outDir>", "Directory of output files")
+		.option("--debug", "Enable debug mode")
+		.action((file: string, config: Record<string, string>) => {
+			wrapCommand(serverApp)(file, config, userConfig);
+		});
 
-  // register `info` command
-  program
-    .command("info", "Display environment information")
-    .action(wrapCommand(systemInfo));
+	// register `info` command
+	program
+		.command("info", "Display environment information")
+		.action(wrapCommand(systemInfo));
 };

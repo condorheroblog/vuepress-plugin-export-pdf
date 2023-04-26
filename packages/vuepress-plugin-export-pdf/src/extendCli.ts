@@ -10,9 +10,9 @@ import { registerCommands } from "./registerCommands";
  * @param userConfig - User config
  */
 export function vuePressPlugin(userConfig: UserConfig) {
-  return {
-    extendCli: (cli: CAC) => {
-      registerCommands(cli, userConfig);
-    },
-  };
+	return {
+		extendCli: (cli: CAC) => {
+			registerCommands(cli, userConfig);
+		},
+	};
 }

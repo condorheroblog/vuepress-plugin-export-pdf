@@ -54,9 +54,9 @@ You can enable line numbers for each code block via config:
 
 ```js
 module.exports = {
-  markdown: {
-    lineNumbers: true,
-  },
+	markdown: {
+		lineNumbers: true,
+	},
 };
 ```
 

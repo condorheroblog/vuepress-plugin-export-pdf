@@ -30,9 +30,9 @@ then add script to your `package.json`:
 
 ```json
 {
-  "scripts": {
-    "export-pdf": "press-export-pdf export [path/to/your/docs]"
-  }
+	"scripts": {
+		"export-pdf": "press-export-pdf export [path/to/your/docs]"
+	}
 }
 ```
 
@@ -82,7 +82,7 @@ ex:
 import { defineUserConfig } from "@condorhero/vuepress-plugin-export-pdf-v2";
 
 export default defineUserConfig({
-  theme: "@vuepress/theme-default",
+	theme: "@vuepress/theme-default",
 });
 ```
 
@@ -93,7 +93,7 @@ if you want to use JS files, **you can leverage your IDE's intellisense with jsd
  * @type {import('@condorhero/vuepress-plugin-export-pdf-v2').UserConfig}
  */
 const config = {
-  // ...
+	// ...
 };
 
 export default config;
@@ -143,7 +143,7 @@ for example:
 
 ```ts
 export default defineUserConfig({
-  routePatterns: ["!/"],
+	routePatterns: ["!/"],
 });
 ```
 

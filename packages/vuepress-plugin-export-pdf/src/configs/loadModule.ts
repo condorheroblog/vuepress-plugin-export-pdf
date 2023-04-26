@@ -6,10 +6,10 @@ import type { UserConfig } from "./userConfigTypes";
  * @param configPath path to user config file
  * @returns config - UserConfig
  */
-export const loadModule = async(configPath: string): Promise<UserConfig> => {
-  const { mod } = await bundleRequire({
-    filepath: configPath,
-  });
+export const loadModule = async (configPath: string): Promise<UserConfig> => {
+	const { mod } = await bundleRequire({
+		filepath: configPath,
+	});
 
-  return mod.default || mod;
+	return mod.default || mod;
 };

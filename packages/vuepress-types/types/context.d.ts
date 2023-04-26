@@ -11,122 +11,122 @@ import type { ThemeAPI } from "./theme-api";
  */
 
 export interface ContextConstructor {
-  new (options: ContextOptions): Context
+	new(options: ContextOptions): Context
 }
 
 export type App = Context;
 
 export interface DevProcess {
-  port: number
-  host: number
-  displayHost: string
-  server: {
-    compiler: {
-      hooks: {
-        done: {
-          tap: (name: string, callback: () => void) => void
-        }
-      }
-    }
-    close: () => void
-  }
+	port: number
+	host: number
+	displayHost: string
+	server: {
+		compiler: {
+			hooks: {
+				done: {
+					tap: (name: string, callback: () => void) => void
+				}
+			}
+		}
+		close: () => void
+	}
 }
 
 export interface Context {
-  /**
-   * Docs
-   */
-  isProd: boolean
-  pages: Page[]
-  sourceDir: string
-  tempPath: string
-  outDir: string
-  base: string
-  writeTemp: (file: string, content: string) => void
+	/**
+	 * Docs
+	 */
+	isProd: boolean
+	pages: Page[]
+	sourceDir: string
+	tempPath: string
+	outDir: string
+	base: string
+	writeTemp: (file: string, content: string) => void
 
-  /**
-   * Other
-   */
-  options: ContextOptions
-  vuepressDir: string
-  libDir: string
-  cwd: string
-  siteConfig: SiteConfig
-  themeConfig: ThemeConfig
-  markdown: Markdown
-  pluginAPI: PluginAPI
-  themeAPI: ThemeAPI
-  ClientComputedMixinConstructor: new () => ClientComputedMixin
-  ssrTemplate: string
-  devTemplate: string
-  globalLayout: string
-  // cache related properties, added in resolveCacheLoaderOptions()
-  cacheDirectory: string
-  cacheIdentifier: string
-  devProcess: DevProcess
+	/**
+	 * Other
+	 */
+	options: ContextOptions
+	vuepressDir: string
+	libDir: string
+	cwd: string
+	siteConfig: SiteConfig
+	themeConfig: ThemeConfig
+	markdown: Markdown
+	pluginAPI: PluginAPI
+	themeAPI: ThemeAPI
+	ClientComputedMixinConstructor: new () => ClientComputedMixin
+	ssrTemplate: string
+	devTemplate: string
+	globalLayout: string
+	// cache related properties, added in resolveCacheLoaderOptions()
+	cacheDirectory: string
+	cacheIdentifier: string
+	devProcess: DevProcess
 
-  // private
-  resolveConfigAndInitialize: () => void
-  process: () => Promise<void>
-  applyInternalPlugins: () => void
-  applyUserPlugins: () => void
-  normalizeHeadTagUrls: () => void
-  resolveCacheLoaderOptions: () => void
-  resolveTemplates: () => void
-  resolveGlobalLayout: () => void
-  resolveCommonAgreementFilePath: () => void | string
-  resolvePages: () => Promise<void>
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  getThemeConfigValue: (key: string) => any
-  resolveThemeAgreementFile: (filepath: string) => string | void
-  resolveSiteAgreementFile: (filepath: string) => string | void
+	// private
+	resolveConfigAndInitialize: () => void
+	process: () => Promise<void>
+	applyInternalPlugins: () => void
+	applyUserPlugins: () => void
+	normalizeHeadTagUrls: () => void
+	resolveCacheLoaderOptions: () => void
+	resolveTemplates: () => void
+	resolveGlobalLayout: () => void
+	resolveCommonAgreementFilePath: () => void | string
+	resolvePages: () => Promise<void>
 
-  // public
-  addPage: (options: PageOptions) => Promise<void>
-  getSiteData: () => SiteData
-  getLibFilePath: (relative: string) => string
-  dev: () => Promise<Context>
-  build: () => Promise<Context>
+	getThemeConfigValue: (key: string) => any
+	resolveThemeAgreementFile: (filepath: string) => string | void
+	resolveSiteAgreementFile: (filepath: string) => string | void
+
+	// public
+	addPage: (options: PageOptions) => Promise<void>
+	getSiteData: () => SiteData
+	getLibFilePath: (relative: string) => string
+	dev: () => Promise<Context>
+	build: () => Promise<Context>
 }
 
 export interface ContextOptions {
-  // ===========
-  // cli options
-  // ===========
+	// ===========
+	// cli options
+	// ===========
 
-  // dirs
-  sourceDir?: string
-  dest?: string
-  temp?: string
+	// dirs
+	sourceDir?: string
+	dest?: string
+	temp?: string
 
-  // listen
-  host?: string
-  port?: number
+	// listen
+	host?: string
+	port?: number
 
-  // other
-  clearScreen?: boolean
-  open?: boolean
-  cache?: boolean
+	// other
+	clearScreen?: boolean
+	open?: boolean
+	cache?: boolean
 
-  // ===========
-  // api options
-  // ===========
+	// ===========
+	// api options
+	// ===========
 
-  theme?: string
-  plugins?: PluginConfig[]
-  siteConfig?: SiteConfig
+	theme?: string
+	plugins?: PluginConfig[]
+	siteConfig?: SiteConfig
 }
 
 /**
  * Context.getSiteData()
  */
 export type SiteData =
-  // `locales` directly comes from SiteConfig
-  Pick<SiteConfig, "locales"> &
-  // `title`, `description`, `base`, `themeConfig` are always defined
-  Required<
-  Pick<SiteConfig, "title" | "description" | "base" | "themeConfig">
-  > & {
-    // page.toJson()
-    pages: PageComputed[]
-  };
+	// `locales` directly comes from SiteConfig
+	Pick<SiteConfig, "locales"> &
+	// `title`, `description`, `base`, `themeConfig` are always defined
+	Required<
+		Pick<SiteConfig, "title" | "description" | "base" | "themeConfig">
+	> & {
+		// page.toJson()
+		pages: PageComputed[]
+	};

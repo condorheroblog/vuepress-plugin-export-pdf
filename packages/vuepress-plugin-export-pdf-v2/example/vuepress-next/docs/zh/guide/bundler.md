@@ -43,15 +43,15 @@ const { viteBundler } = require("vuepress");
 // const { webpackBundler } = require('vuepress-webpack')
 
 module.exports = {
-  bundler: viteBundler({
-    vuePluginOptions: {
-      template: {
-        compilerOptions: {
-          isCustomElement: tag => tag === "center",
-        },
-      },
-    },
-  }),
+	bundler: viteBundler({
+		vuePluginOptions: {
+			template: {
+				compilerOptions: {
+					isCustomElement: tag => tag === "center",
+				},
+			},
+		},
+	}),
 };
 ```
 

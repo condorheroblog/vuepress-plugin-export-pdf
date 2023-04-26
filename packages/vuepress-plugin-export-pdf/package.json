@@ -1,83 +1,72 @@
 {
-  "name": "@condorhero/vuepress-plugin-export-pdf",
-  "type": "module",
-  "version": "2.0.1",
-  "description": "Vuepress plugin exports PDF 📁.",
-  "keywords": [
-    "vuepress-plugin-export-pdf",
-    "vuepress-plugin",
-    "vuepress",
-    "plugin"
-  ],
-  "license": "MIT",
-  "author": "CondorHero",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/condorheroblog/vuepress-plugin.git",
-    "directory": "packages/vuepress-plugin-export-pdf"
-  },
-  "main": "dist/index.cjs",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
-  "typesVersions": {
-    "*": {
-      "*": [
-        "./dist/*",
-        "./dist/index.d.ts"
-      ]
-    }
-  },
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.mjs"
-    }
-  },
-  "files": [
-    "bin",
-    "dist"
-  ],
-  "bin": {
-    "press-export-pdf": "bin/press-export-pdf.mjs"
-  },
-  "scripts": {
-    "build": "unbuild",
-    "prepublishOnly": "nr build",
-    "dev": "esno ./src/commands/press-export-pdf.ts export ./example/vue-press/docs"
-  },
-  "bugs": {
-    "url": "https://github.com/condorheroblog/vuepress-plugin/issues"
-  },
-  "engines": {
-    "node": ">=8.6"
-  },
-  "homepage": "https://github.com/condorheroblog/vuepress-plugin#readme",
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org"
-  },
-  "peerDependencies": {
-    "vuepress": "1.x"
-  },
-  "dependencies": {
-    "@vuepress/utils": "2.0.0-beta.51",
-    "bundle-require": "^3.1.0",
-    "cac": "^6.7.14",
-    "cli-progress": "^3.11.2",
-    "debug": "^4.3.4",
-    "envinfo": "^7.8.1",
-    "multimatch": "^6.0.0",
-    "pdfjs": "^2.4.7",
-    "puppeteer": "^18.0.3",
-    "semver": "^7.3.7"
-  },
-  "devDependencies": {
-    "@condorhero/vuepress-types": "^2.0.0",
-    "@types/cli-progress": "^3.11.0",
-    "@types/debug": "^4.1.7",
-    "@types/envinfo": "^7.8.1",
-    "@types/semver": "^7.3.12",
-    "vuepress": "^1.9.7"
-  }
+	"name": "@condorhero/vuepress-plugin-export-pdf",
+	"type": "module",
+	"version": "2.0.1",
+	"description": "VuePress plugin exports PDF 📁.",
+	"author": "CondorHero",
+	"license": "MIT",
+	"homepage": "https://github.com/condorheroblog/vuepress-plugin#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/condorheroblog/vuepress-plugin.git",
+		"directory": "packages/vuepress-plugin-export-pdf"
+	},
+	"bugs": {
+		"url": "https://github.com/condorheroblog/vuepress-plugin/issues"
+	},
+	"keywords": [
+		"vuepress-plugin-export-pdf",
+		"vuepress-plugin",
+		"vuepress",
+		"plugin"
+	],
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"require": "./dist/index.cjs",
+			"import": "./dist/index.mjs"
+		}
+	},
+	"main": "dist/index.cjs",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"typesVersions": {
+		"*": {
+			"*": [
+				"./dist/*",
+				"./dist/index.d.ts"
+			]
+		}
+	},
+	"bin": {
+		"press-export-pdf": "bin/press-export-pdf.mjs"
+	},
+	"files": [
+		"bin",
+		"dist"
+	],
+	"engines": {
+		"node": ">=8.6"
+	},
+	"scripts": {
+		"build": "unbuild",
+		"prepublishOnly": "nr build",
+		"dev": "esno ./src/commands/press-export-pdf.ts export ./example/vue-press/docs"
+	},
+	"peerDependencies": {
+		"vuepress": "1.x"
+	},
+	"dependencies": {
+		"@condorhero/vuepress-plugin-export-pdf-core": "workspace:^",
+		"debug": "^4.3.4"
+	},
+	"devDependencies": {
+		"@condorhero/vuepress-types": "^2.0.0",
+		"@types/debug": "^4.1.7",
+		"vuepress": "^1.9.9"
+	},
+	"publishConfig": {
+		"access": "public",
+		"registry": "https://registry.npmjs.org"
+	}
 }

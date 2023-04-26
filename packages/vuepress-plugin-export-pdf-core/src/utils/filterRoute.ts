@@ -1,5 +1,5 @@
-import type { Page } from "vuepress";
 import multimatch from "multimatch";
+import type { Page } from "../";
 
 /**
  * Filter route by a list of glob patterns.
@@ -8,6 +8,6 @@ import multimatch from "multimatch";
  * @returns - List of pages that match the glob patterns.
  */
 export const filterRoute = (pages: Page[], routePatterns: string[]) => {
-  const pagePaths = multimatch(pages.map(({ path }) => path), routePatterns);
-  return pages.filter(({ path }) => pagePaths.includes(path));
+	const pagePaths = multimatch(pages.map(({ path }) => path), routePatterns);
+	return pages.filter(({ path }) => pagePaths.includes(path));
 };

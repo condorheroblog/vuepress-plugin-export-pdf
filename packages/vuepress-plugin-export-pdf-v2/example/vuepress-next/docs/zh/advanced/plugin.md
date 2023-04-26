@@ -10,8 +10,8 @@
 
 ```js
 const fooPlugin = {
-  name: "vuepress-plugin-foo",
-  // ...
+	name: "vuepress-plugin-foo",
+	// ...
 };
 ```
 
@@ -19,10 +19,10 @@ const fooPlugin = {
 
 ```js
 const barPlugin = (app) => {
-  return {
-    name: "vuepress-plugin-bar",
-    // ...
-  };
+	return {
+		name: "vuepress-plugin-bar",
+		// ...
+	};
 };
 ```
 
@@ -30,19 +30,19 @@ const barPlugin = (app) => {
 
 ```js
 const fooPlugin = (options) => {
-  return {
-    name: "vuepress-plugin-foo",
-    // ...
-  };
+	return {
+		name: "vuepress-plugin-foo",
+		// ...
+	};
 };
 
 const barPlugin = (options) => {
-  return (app) => {
-    return {
-      name: "vuepress-plugin-bar",
-      // ...
-    };
-  };
+	return (app) => {
+		return {
+			name: "vuepress-plugin-bar",
+			// ...
+		};
+	};
 };
 ```
 
@@ -52,10 +52,10 @@ const barPlugin = (options) => {
 
 ```json
 {
-  "name": "vuepress-plugin-foo",
-  "keywords": [
-    "vuepress-plugin"
-  ]
+	"name": "vuepress-plugin-foo",
+	"keywords": [
+		"vuepress-plugin"
+	]
 }
 ```
 

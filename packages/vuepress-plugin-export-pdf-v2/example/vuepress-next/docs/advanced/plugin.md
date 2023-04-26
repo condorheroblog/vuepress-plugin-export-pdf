@@ -10,8 +10,8 @@ A plugin should be a plain JavaScript object that satisfies the [Plugin API](../
 
 ```js
 const fooPlugin = {
-  name: "vuepress-plugin-foo",
-  // ...
+	name: "vuepress-plugin-foo",
+	// ...
 };
 ```
 
@@ -19,10 +19,10 @@ A plugin could also be a function that receives the [app instace](../reference/n
 
 ```js
 const barPlugin = (app) => {
-  return {
-    name: "vuepress-plugin-bar",
-    // ...
-  };
+	return {
+		name: "vuepress-plugin-bar",
+		// ...
+	};
 };
 ```
 
@@ -30,19 +30,19 @@ A plugin usually needs to allow user options, so we typically provide users with
 
 ```js
 const fooPlugin = (options) => {
-  return {
-    name: "vuepress-plugin-foo",
-    // ...
-  };
+	return {
+		name: "vuepress-plugin-foo",
+		// ...
+	};
 };
 
 const barPlugin = (options) => {
-  return (app) => {
-    return {
-      name: "vuepress-plugin-bar",
-      // ...
-    };
-  };
+	return (app) => {
+		return {
+			name: "vuepress-plugin-bar",
+			// ...
+		};
+	};
 };
 ```
 
@@ -52,10 +52,10 @@ After creating a plugin, you should follow some conventions in the [package.json
 
 ```json
 {
-  "name": "vuepress-plugin-foo",
-  "keywords": [
-    "vuepress-plugin"
-  ]
+	"name": "vuepress-plugin-foo",
+	"keywords": [
+		"vuepress-plugin"
+	]
 }
 ```
 

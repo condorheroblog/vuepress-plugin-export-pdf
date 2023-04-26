@@ -12,27 +12,27 @@ A VuePress theme is a special plugin, which should satisfy the [Theme API](../re
 const { path } = require("@vuepress/utils");
 
 const fooTheme = (options) => {
-  return {
-    name: "vuepress-theme-foo",
-    layouts: {
-      Layout: path.resolve(__dirname, "layouts/Layout.vue"),
-      404: path.resolve(__dirname, "layouts/404.vue"),
-    },
-    // ...
-  };
+	return {
+		name: "vuepress-theme-foo",
+		layouts: {
+			Layout: path.resolve(__dirname, "layouts/Layout.vue"),
+			404: path.resolve(__dirname, "layouts/404.vue"),
+		},
+		// ...
+	};
 };
 
 const barTheme = (options) => {
-  return (app) => {
-    return {
-      name: "vuepress-theme-bar",
-      layouts: {
-        Layout: path.resolve(__dirname, "layouts/Layout.vue"),
-        404: path.resolve(__dirname, "layouts/404.vue"),
-      },
-      // ...
-    };
-  };
+	return (app) => {
+		return {
+			name: "vuepress-theme-bar",
+			layouts: {
+				Layout: path.resolve(__dirname, "layouts/Layout.vue"),
+				404: path.resolve(__dirname, "layouts/404.vue"),
+			},
+			// ...
+		};
+	};
 };
 ```
 
@@ -64,10 +64,10 @@ Also, there are some conventions for theme in [package.json](https://docs.npmjs.
 
 ```json
 {
-  "name": "vuepress-theme-foo",
-  "keywords": [
-    "vuepress-theme"
-  ]
+	"name": "vuepress-theme-foo",
+	"keywords": [
+		"vuepress-theme"
+	]
 }
 ```
 

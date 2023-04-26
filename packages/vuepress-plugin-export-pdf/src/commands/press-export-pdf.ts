@@ -5,7 +5,7 @@
 import { afterParse, beforeParse, runCli } from "../runner";
 
 runCli(
-  "press-export-pdf",
-  beforeParse,
-  afterParse,
+	"press-export-pdf",
+	beforeParse,
+	afterParse,
 );
