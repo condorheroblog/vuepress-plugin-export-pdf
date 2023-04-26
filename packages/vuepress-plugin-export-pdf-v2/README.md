@@ -2,7 +2,7 @@
 
 > If you are using `VuePress1.x`, please use [vuepress-plugin-export-pdf](https://github.com/condorheroblog/vuepress-plugin/blob/main/packages/vuepress-plugin-export-pdf/README.md)
 
-`@condorhero/vuepress-plugin-export-pdf-v2` is a VuePress plugin that allows you to export your sites to a PDF file.
+`@condorhero/vuepress-plugin-export-pdf-v2` is a VuePress plugin that allows you to export your sites to a PDF file with **outlines or bookmarks**.
 
 <p align="center">
     <a href="https://www.npmjs.com/package/@condorhero/vuepress-plugin-export-pdf-v2" target="__blank">
@@ -47,12 +47,13 @@ npm run export-pdf
 
 The package provides the `press-export-pdf` command with the following command line options:
 
-![vuepress-plugin-export-pdf-v2.png](./assets/vuepress-plugin-export-pdf-v2.png)
+![vuepress-plugin-export-pdf-v2.svg](./assets/vuepress-plugin-export-pdf-v2.svg)
 
 - `export [sourceDir]`: Export your site to a PDF file
   - `-c, --config <config>`: Set path to config file
   - `--outFile <outFile>`: Name of output file
   - `--outDir <outDir>`: Directory of output files
+  - `--pdfOutlines <pdfOutlines>`: Keep PDF outlines/bookmarks
   - `--debug`: Enable debug mode
 - `info`: Display environment information
 - `--help`: Display help information
@@ -109,7 +110,7 @@ config options:
 - `routePatterns` - Specify the patterns of files you want to be exported. The patterns are relative to the source directory (default `["/**", "!/404.html"]`).Patterns to match Route path using [multimatch](https://github.com/sindresorhus/multimatch)
 - `puppeteerLaunchOptions` - [Puppeteer launch options object](https://github.com/puppeteer/puppeteer/blob/main/docs/api/puppeteer.puppeteerlaunchoptions.md)
 - `pdfOptions` - [Valid options to configure PDF generation via Page.pdf()](https://github.com/puppeteer/puppeteer/blob/main/docs/api/puppeteer.pdfoptions.md) (default `{ format: 'A4 }`)
-- `enhanceApp` - Enhanceapp is a function that is executed before generating PDF. It receives two parameters: the created [browser](https://github.com/puppeteer/puppeteer/blob/main/docs/api/puppeteer.browser.md) instance and the [page](https://github.com/puppeteer/puppeteer/blob/main/docs/api/puppeteer.page.md) instance
+- `pdfOutlines` - Keep PDF outlines/bookmarks(default `true`)
 
 ## PDF print style
 
@@ -136,6 +137,16 @@ for example:
 ![print-style.png](./assets/print-style.png)
 
 ## Examples
+
+### Discard your outlines/bookmarks
+
+`.vuepress/vuepress-pdf.config.ts` add `pdfOutlines`:
+
+```ts
+export default defineUserConfig({
+	pdfOutlines: false,
+});
+```
 
 ### Don't export homepage
 
