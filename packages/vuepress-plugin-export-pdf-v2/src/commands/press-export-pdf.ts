@@ -14,6 +14,7 @@ export const registerCommands = (program: CAC) => {
 		.option("-c, --config <config>", "Set path to config file")
 		.option("--outFile <outFile>", "Name of output file")
 		.option("--outDir <outDir>", "Directory of output files")
+		.option("--pdfOutlines <pdfOutlines>", "Keep PDF outlines/bookmarks")
 		.option("--debug", "Enable debug mode")
 		.action(serverApp);
 

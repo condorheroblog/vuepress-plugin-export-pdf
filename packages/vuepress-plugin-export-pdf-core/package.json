@@ -50,7 +50,7 @@
 		"dev": "esno ./src/index.ts"
 	},
 	"dependencies": {
-		"@condorhero/merge-pdfs": "^0.0.2",
+		"@condorhero/merge-pdfs": "^0.0.3",
 		"bundle-require": "^4.0.1",
 		"cac": "^6.7.14",
 		"envinfo": "^7.8.1",

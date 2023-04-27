@@ -21,6 +21,7 @@ export interface IGeneratePdfOptions {
 	sorter?: UserSorter
 	puppeteerLaunchOptions?: LaunchOptions
 	pdfOptions?: PDFOptions
+	pdfOutlines?: boolean
 }
 
 /**
@@ -35,9 +36,10 @@ export const generatePdf = async ({
 	sorter,
 	outFile,
 	outDir,
-	puppeteerLaunchOptions,
 	pdfOptions,
+	pdfOutlines,
 	routePatterns,
+	puppeteerLaunchOptions,
 }: IGeneratePdfOptions) => {
 	const tempPdfDir = join(tempDir, "pdf");
 	fse.ensureDirSync(tempPdfDir);
@@ -74,7 +76,7 @@ export const generatePdf = async ({
 	singleBar.stop();
 	await printer.close();
 
-	const exportedPath = await mergePDF(normalizePages, outFile, outDir);
+	const exportedPath = await mergePDF(normalizePages, outFile, outDir, pdfOutlines);
 	const message = `\nExported to ${pc.yellow(exportedPath)}\n`;
 	process.stdout.write(message);
 

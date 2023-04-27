@@ -45,6 +45,7 @@ export const serverApp = async (dir = "docs", commandOptions: CommandOptions = {
 		sorter,
 		puppeteerLaunchOptions,
 		pdfOptions,
+		pdfOutlines = commandOptions.pdfOutlines,
 		outFile = vuepressOutFile,
 		outDir = vuepressOutDir,
 		routePatterns,
@@ -78,9 +79,10 @@ export const serverApp = async (dir = "docs", commandOptions: CommandOptions = {
 			outFile,
 			outDir,
 			sorter,
-			puppeteerLaunchOptions,
 			pdfOptions,
+			pdfOutlines,
 			routePatterns,
+			puppeteerLaunchOptions,
 		});
 	}
 	catch (error) {

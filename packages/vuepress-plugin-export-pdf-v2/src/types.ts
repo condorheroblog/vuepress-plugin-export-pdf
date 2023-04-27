@@ -15,4 +15,5 @@ export interface UserConfig {
 	pdfOptions?: PDFOptions
 	outFile?: string
 	outDir?: string
+	pdfOutlines?: boolean
 }
