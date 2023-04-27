@@ -1,8 +1,7 @@
-import type { CAC } from "cac";
+import type { CAC } from "@condorhero/vuepress-plugin-export-pdf-core";
 
-import type { UserConfig } from "./configs";
-
-import { registerCommands } from "./registerCommands";
+import { registerCommands } from "./commands";
+import type { UserConfig } from ".";
 
 /**
  * Extend CLI.
