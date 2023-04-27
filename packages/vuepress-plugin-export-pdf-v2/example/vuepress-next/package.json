@@ -1,5 +1,6 @@
 {
 	"name": "vuepress-next",
+	"version": "3.0.0-beta.0",
 	"private": true,
 	"description": "vuepress-next example",
 	"scripts": {

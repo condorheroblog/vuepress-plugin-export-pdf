@@ -1,7 +1,7 @@
 {
 	"name": "@condorhero/vuepress-plugin-export-pdf-v2",
 	"type": "module",
-	"version": "2.0.1",
+	"version": "3.0.0-beta.0",
 	"description": "VuePress plugin exports PDF 📁.",
 	"author": "CondorHero",
 	"license": "MIT",
