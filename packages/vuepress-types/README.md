@@ -18,9 +18,9 @@ If types is specified, only packages listed will be included in the global scope
 
 ```json
 {
-  "compilerOptions": {
-    "types": ["node", "jest", "express"]
-  }
+	"compilerOptions": {
+		"types": ["node", "jest", "express"]
+	}
 }
 ```
 

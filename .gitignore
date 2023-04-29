@@ -9,6 +9,7 @@ yarn-error.log*
 
 # VS Code
 .DS_Store
+.vscode
 
 # Runtime data
 pids

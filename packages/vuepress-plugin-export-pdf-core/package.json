@@ -1,0 +1,74 @@
+{
+	"name": "@condorhero/vuepress-plugin-export-pdf-core",
+	"type": "module",
+	"version": "2.0.1",
+	"description": "The Core of VuePress exports PDF plugin",
+	"author": "CondorHero",
+	"license": "MIT",
+	"homepage": "https://github.com/condorheroblog/vuepress-plugin#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/condorheroblog/vuepress-plugin.git",
+		"directory": "packages/vuepress-plugin-export-pdf-core"
+	},
+	"bugs": {
+		"url": "https://github.com/condorheroblog/vuepress-plugin/issues"
+	},
+	"keywords": [
+		"vuepress-plugin-export-pdf",
+		"vuepress-plugin",
+		"vuepress",
+		"plugin"
+	],
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"require": "./dist/index.cjs",
+			"import": "./dist/index.mjs"
+		}
+	},
+	"main": "dist/index.cjs",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"typesVersions": {
+		"*": {
+			"*": [
+				"./dist/*",
+				"./dist/index.d.ts"
+			]
+		}
+	},
+	"files": [
+		"dist"
+	],
+	"engines": {
+		"node": ">=8.6"
+	},
+	"scripts": {
+		"build": "unbuild",
+		"prepublishOnly": "nr build",
+		"dev": "esno ./src/index.ts"
+	},
+	"dependencies": {
+		"@condorhero/merge-pdfs": "^0.0.3",
+		"bundle-require": "^4.0.1",
+		"cac": "^6.7.14",
+		"envinfo": "^7.8.1",
+		"fs-extra": "^11.1.1",
+		"html-export-pdf-cli": "^1.0.2",
+		"multimatch": "^6.0.0",
+		"ora": "^6.3.0",
+		"pdfjs": "^2.4.7",
+		"picocolors": "^1.0.0",
+		"semver": "^7.5.0"
+	},
+	"devDependencies": {
+		"@types/envinfo": "^7.8.1",
+		"@types/fs-extra": "^11.0.1",
+		"@types/semver": "^7.3.13"
+	},
+	"publishConfig": {
+		"access": "public",
+		"registry": "https://registry.npmjs.org"
+	}
+}

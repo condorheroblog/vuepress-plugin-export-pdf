@@ -94,9 +94,9 @@ The path aliases that set in config file are also supported:
 
 ```js
 module.exports = {
-  alias: {
-    "@alias": path.resolve(__dirname, "./path/to/some/dir"),
-  },
+	alias: {
+		"@alias": path.resolve(__dirname, "./path/to/some/dir"),
+	},
 };
 ```
 
