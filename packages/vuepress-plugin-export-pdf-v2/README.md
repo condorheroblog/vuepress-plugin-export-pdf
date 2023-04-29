@@ -1,6 +1,6 @@
 # @condorhero/vuepress-plugin-export-pdf-v2
 
-> If you are using `VuePress1.x`, please use [vuepress-plugin-export-pdf](https://github.com/condorheroblog/vuepress-plugin-export-pdf/blob/main/packages/vuepress-plugin-export-pdf/README.md)
+> If you are using `VuePress1.x`, please use [vuepress-plugin-export-pdf](https://github.com/condorheroblog/vuepress-plugin-export-pdf/blob/main/packages/vuepress-plugin-export-pdf-v1/README.md)
 
 `@condorhero/vuepress-plugin-export-pdf-v2` is a VuePress plugin that allows you to export your sites to a PDF file with **outlines or bookmarks**.
 
@@ -19,7 +19,7 @@
 ## Related
 
 - [vitepress-export-pdf](https://github.com/condorheroblog/vitepress-export-pdf)
-- [@condorhero/vuepress-plugin-export-pdf](https://github.com/condorheroblog/vuepress-plugin-export-pdf/blob/main/packages/vuepress-plugin-export-pdf/README.md)
+- [@condorhero/vuepress-plugin-export-pdf](https://github.com/condorheroblog/vuepress-plugin-export-pdf/blob/main/packages/vuepress-plugin-export-pdf-v1/README.md)
 
 ## Installation
 
