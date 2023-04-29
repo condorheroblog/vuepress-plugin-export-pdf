@@ -1,6 +1,6 @@
 # @condorhero/vuepress-plugin-export-pdf-core
 
-The core of [vitepress-export-pdf](https://github.com/condorheroblog/vitepress-export-pdf) and [@condorhero/vuepress-plugin-export-pdf](https://github.com/condorheroblog/vuepress-plugin/).
+The core of [vitepress-export-pdf](https://github.com/condorheroblog/vitepress-export-pdf) and [@condorhero/vuepress-plugin-export-pdf](https://github.com/condorheroblog/vuepress-plugin-export-pdf/).
 
 <p align="center">
     <a href="https://www.npmjs.com/package/@condorhero/vuepress-plugin-export-pdf-core" target="__blank">
@@ -16,8 +16,8 @@ The core of [vitepress-export-pdf](https://github.com/condorheroblog/vitepress-e
 ## Related
 
 - [vitepress-export-pdf](https://github.com/condorheroblog/vitepress-export-pdf)
-- [@condorhero/vuepress-plugin-export-pdf](https://github.com/condorheroblog/vuepress-plugin/blob/main/packages/vuepress-plugin-export-pdf/README.md)
-- [@condorhero/vuepress-plugin-export-pdf-v2](https://github.com/condorheroblog/vuepress-plugin/blob/main/packages/vuepress-plugin-export-pdf-v2/README.md)
+- [@condorhero/vuepress-plugin-export-pdf](https://github.com/condorheroblog/vuepress-plugin-export-pdf/blob/main/packages/vuepress-plugin-export-pdf/README.md)
+- [@condorhero/vuepress-plugin-export-pdf-v2](https://github.com/condorheroblog/vuepress-plugin-export-pdf/blob/main/packages/vuepress-plugin-export-pdf-v2/README.md)
 
 ## Installation
 
@@ -27,4 +27,4 @@ npm install @condorhero/vuepress-plugin-export-pdf-core -D
 
 ## License
 
-[MIT](https://github.com/condorheroblog/vuepress-plugin/blob/main/LICENSE)
+[MIT](https://github.com/condorheroblog/vuepress-plugin-export-pdf/blob/main/LICENSE)

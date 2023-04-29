@@ -1,5 +1,5 @@
 {
-	"name": "@condorhero/vuepress-plugin-monorepo",
+	"name": "@condorhero/vuepress-plugin-export-pdf-monorepo",
 	"type": "module",
 	"version": "2.0.1",
 	"private": true,
@@ -7,13 +7,13 @@
 	"description": "Vuepress plugin I wrote",
 	"author": "CondorHero",
 	"license": "MIT",
-	"homepage": "https://github.com/condorheroblog/vuepress-plugin#readme",
+	"homepage": "https://github.com/condorheroblog/vuepress-plugin-export-pdf#readme",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/condorheroblog/vuepress-plugin.git"
+		"url": "git+https://github.com/condorheroblog/vuepress-plugin-export-pdf.git"
 	},
 	"bugs": {
-		"url": "https://github.com/condorheroblog/vuepress-plugin/issues"
+		"url": "https://github.com/condorheroblog/vuepress-plugin-export-pdf/issues"
 	},
 	"keywords": [
 		"vuepress-plugin",
@@ -32,7 +32,7 @@
 	},
 	"workspaces": [
 		"packages/*",
-		"packages/vuepress-plugin-export-pdf/example/vue-press",
+		"packages/vuepress-plugin-export-pdf-v1/example/vue-press",
 		"packages/vuepress-plugin-export-pdf-v2/example/vuepress-next"
 	],
 	"devDependencies": {

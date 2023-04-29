@@ -1,6 +1,6 @@
 # @condorhero/vuepress-plugin-export-pdf-v2
 
-> If you are using `VuePress1.x`, please use [vuepress-plugin-export-pdf](https://github.com/condorheroblog/vuepress-plugin/blob/main/packages/vuepress-plugin-export-pdf/README.md)
+> If you are using `VuePress1.x`, please use [vuepress-plugin-export-pdf](https://github.com/condorheroblog/vuepress-plugin-export-pdf/blob/main/packages/vuepress-plugin-export-pdf/README.md)
 
 `@condorhero/vuepress-plugin-export-pdf-v2` is a VuePress plugin that allows you to export your sites to a PDF file with **outlines or bookmarks**.
 
@@ -19,7 +19,7 @@
 ## Related
 
 - [vitepress-export-pdf](https://github.com/condorheroblog/vitepress-export-pdf)
-- [@condorhero/vuepress-plugin-export-pdf](https://github.com/condorheroblog/vuepress-plugin/blob/main/packages/vuepress-plugin-export-pdf/README.md)
+- [@condorhero/vuepress-plugin-export-pdf](https://github.com/condorheroblog/vuepress-plugin-export-pdf/blob/main/packages/vuepress-plugin-export-pdf/README.md)
 
 ## Installation
 
@@ -112,7 +112,7 @@ config options:
 - `puppeteerLaunchOptions` - [Puppeteer launch options object](https://github.com/puppeteer/puppeteer/blob/main/docs/api/puppeteer.puppeteerlaunchoptions.md)
 - `pdfOptions` - [Valid options to configure PDF generation via Page.pdf()](https://github.com/puppeteer/puppeteer/blob/main/docs/api/puppeteer.pdfoptions.md) (default `{ format: 'A4 }`)
 - `pdfOutlines` - Keep PDF outlines/bookmarks(default `true`)
-- `urlOrigin`: Change the origin of the print url([How do I change the URL point to the localhost](https://github.com/condorheroblog/vuepress-plugin/issues/5))
+- `urlOrigin`: Change the origin of the print url([How do I change the URL point to the localhost](https://github.com/condorheroblog/vuepress-plugin-export-pdf/issues/5))
 ## PDF print style
 
 By default, `A4` paper is used for printing, The size of A4 paper is (8.27in x 11.7in), One inch is equal to ninety-six pixels: `1 in = 96 pixel (X)` ,the inch unit of A4 is converted to (793.92px x 1123.2px).
@@ -175,4 +175,4 @@ run `vuepress info` or `press-export-pdf info` Shows debugging information about
 
 ## License
 
-[MIT](https://github.com/condorheroblog/vuepress-plugin/blob/main/LICENSE)
+[MIT](https://github.com/condorheroblog/vuepress-plugin-export-pdf/blob/main/LICENSE)
