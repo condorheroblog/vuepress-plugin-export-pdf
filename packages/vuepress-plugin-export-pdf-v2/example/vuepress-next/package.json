@@ -8,6 +8,7 @@
 		"help": "press-export-pdf --help",
 		"version": "press-export-pdf --version",
 		"systemInfo": "press-export-pdf info",
+		"docs:urlOrigin": "press-export-pdf export docs --urlOrigin https://www.google.com/",
 		"docs:outFile": "press-export-pdf export docs --outFile docs.pdf",
 		"docs:outDir": "press-export-pdf export docs --outDir /tmp/outDir",
 		"docs:debug": "press-export-pdf export docs --debug",

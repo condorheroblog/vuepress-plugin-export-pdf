@@ -87,3 +87,4 @@ dist
 **/.vuepress/.temp/
 **/.vuepress/.cache/
 **/.vuepress/dist/
+*.pdf
