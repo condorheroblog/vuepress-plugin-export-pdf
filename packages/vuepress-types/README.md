@@ -46,4 +46,4 @@ This feature differs from typeRoots in that it is about specifying only the exac
 
 ## License
 
-[MIT](https://github.com/condorheroblog/vuepress-plugin/blob/main/LICENSE)
+[MIT](https://github.com/condorheroblog/vuepress-plugin-export-pdf/blob/main/LICENSE)

@@ -36,7 +36,7 @@ export default defineUserConfig({
   theme: defaultTheme({
     home: '/',
     docsDir: 'docs',
-    repo: 'https://github.com/condorheroblog/vuepress-plugin/tree/main/packages/vuepress-plugin-export-pdf/vuepress-next',
+    repo: 'https://github.com/condorheroblog/vuepress-plugin-export-pdf/tree/main/packages/vuepress-plugin-export-pdf/vuepress-next',
 
     // theme-level locales config
     locales: {

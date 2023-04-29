@@ -5,14 +5,14 @@
 	"description": "VuePress plugin exports PDF 📁.",
 	"author": "CondorHero",
 	"license": "MIT",
-	"homepage": "https://github.com/condorheroblog/vuepress-plugin#readme",
+	"homepage": "https://github.com/condorheroblog/vuepress-plugin-export-pdf#readme",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/condorheroblog/vuepress-plugin.git",
-		"directory": "packages/vuepress-plugin-export-pdf"
+		"url": "git+https://github.com/condorheroblog/vuepress-plugin-export-pdf.git",
+		"directory": "packages/vuepress-plugin-export-pdf-v1"
 	},
 	"bugs": {
-		"url": "https://github.com/condorheroblog/vuepress-plugin/issues"
+		"url": "https://github.com/condorheroblog/vuepress-plugin-export-pdf/issues"
 	},
 	"keywords": [
 		"vuepress-plugin-export-pdf",

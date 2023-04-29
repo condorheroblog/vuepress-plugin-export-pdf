@@ -5,15 +5,15 @@
 </p>
 
 <p align="center">
-  Vuepress plugin I wrote
+  VuePress Plugin Export PDF
 </p>
 
 ## Plugins
 
-- [@condorhero/vuepress-plugin-export-pdf](https://github.com/condorheroblog/vuepress-plugin/blob/main/packages/vuepress-plugin-export-pdf/README.md)
-- [@condorhero/vuepress-plugin-export-pdf-v2](https://github.com/condorheroblog/vuepress-plugin/blob/main/packages/vuepress-plugin-export-pdf-v2/README.md)
+- [@condorhero/vuepress-plugin-export-pdf-v1](https://github.com/condorheroblog/vuepress-plugin-export-pdf/blob/main/packages/vuepress-plugin-export-pdf-v1/README.md)
+- [@condorhero/vuepress-plugin-export-pdf-v2](https://github.com/condorheroblog/vuepress-plugin-export-pdf/blob/main/packages/vuepress-plugin-export-pdf-v2/README.md)
 
-go to [packages](https://github.com/condorheroblog/vuepress-plugin/blob/main/packages) folder.
+go to [packages](https://github.com/condorheroblog/vuepress-plugin-export-pdf/blob/main/packages) folder.
 
 ## Contributing
 
@@ -25,4 +25,4 @@ go to [packages](https://github.com/condorheroblog/vuepress-plugin/blob/main/pac
 
 ## License
 
-[MIT](https://github.com/condorheroblog/vuepress-plugin/blob/main/LICENSE)
+[MIT](https://github.com/condorheroblog/vuepress-plugin-export-pdf/blob/main/LICENSE)

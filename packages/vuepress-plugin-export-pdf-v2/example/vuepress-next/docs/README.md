@@ -15,7 +15,7 @@ actions:
     type: secondary
 footerHtml: true
 footer: '
-    &copy; <a href="https://github.com/condorheroblog/vuepress-plugin" target="_blank">CondorHero</a> 2021-2022
+    &copy; <a href="https://github.com/condorheroblog/vuepress-plugin-export-pdf" target="_blank">CondorHero</a> 2021-2022
     <br />
     Powered by <a href="https://vuepress.vuejs.org" rel="noopener noreferrer" target="_blank">VuePress</a> |
     <a href="https://www.baidu.com/" rel="noopener noreferrer" target="_blank">粤ICP备12345678号</a>
