@@ -1,12 +1,12 @@
 import { join } from "node:path";
 import fse from "fs-extra";
 import pc from "picocolors";
-import { Printer, createProgress, writeFileSafe } from "html-export-pdf-cli";
+import { Printer, createProgress, isValidUrl, writeFileSafe } from "html-export-pdf-cli";
 import type { LaunchOptions, PDFOptions } from "html-export-pdf-cli";
 
-import { filterRoute } from "../utils";
-import type { Page } from "../";
-import { mergePDF } from "./mergePDF";
+import { filterRoute } from "./utils";
+import type { Page } from ".";
+import { mergePDF } from ".";
 
 export type UserSorter = (a: Page, b: Page) => number;
 
@@ -22,6 +22,7 @@ export interface IGeneratePdfOptions {
 	puppeteerLaunchOptions?: LaunchOptions
 	pdfOptions?: PDFOptions
 	pdfOutlines?: boolean
+	urlOrigin?: string
 }
 
 /**
@@ -36,10 +37,12 @@ export const generatePdf = async ({
 	sorter,
 	outFile,
 	outDir,
+	urlOrigin,
 	pdfOptions,
 	pdfOutlines,
 	routePatterns,
 	puppeteerLaunchOptions,
+// eslint-disable-next-line sonarjs/cognitive-complexity
 }: IGeneratePdfOptions) => {
 	const tempPdfDir = join(tempDir, "pdf");
 	fse.ensureDirSync(tempPdfDir);
@@ -49,11 +52,17 @@ export const generatePdf = async ({
 	if (typeof sorter === "function")
 		exportPages = exportPages.sort(sorter);
 
+	const isValidUrlOrigin = isValidUrl(urlOrigin ?? "");
+	if (urlOrigin && !isValidUrlOrigin) {
+		process.stdout.write(pc.red(`${urlOrigin} is not a valid URL`));
+		process.exit(1);
+	}
+
 	const normalizePages = exportPages.map((page) => {
 		return {
 			url: page.path,
 			title: page.title,
-			location: `http://${host}:${port}${page.path}`,
+			location: urlOrigin ? `${new URL(urlOrigin).origin}${page.path}` : `http://${host}:${port}${page.path}`,
 			pagePath: `${tempPdfDir}/${page.key}.pdf`,
 		};
 	});
@@ -61,9 +70,44 @@ export const generatePdf = async ({
 	const singleBar = createProgress();
 	singleBar.start(normalizePages.length);
 
-	const printer = new Printer(puppeteerLaunchOptions);
+	const printer = new Printer();
+	await printer.setup(puppeteerLaunchOptions);
 
 	for (const { location, pagePath, title } of normalizePages) {
+		const page = await printer.createNewPage(location);
+
+		if (urlOrigin && isValidUrlOrigin) {
+			await page.setRequestInterception(true);
+			page.on("request", (request) => {
+				const reqUrl = request.url();
+				// http or https
+				if (isValidUrl(reqUrl)) {
+					const parsedUrl = new URL(reqUrl);
+					parsedUrl.host = host;
+					parsedUrl.protocol = "http:";
+					parsedUrl.port = `${port}`;
+					const parsedUrlString = parsedUrl.toString();
+					request.continue({
+						url: parsedUrlString,
+						headers: Object.assign(
+							{},
+							request.headers(),
+							{
+								refer: parsedUrlString,
+								// Same origin
+								// origin: parsedUrl.origin,
+								// CORS
+								// host: parsedUrl.host,
+							}),
+					});
+				}
+				else {
+					request.continue();
+				}
+			});
+		}
+
+		await printer.render(location);
 		const data = await printer.pdf(location, {
 			format: "A4",
 			...pdfOptions,
@@ -74,7 +118,7 @@ export const generatePdf = async ({
 	}
 
 	singleBar.stop();
-	await printer.close();
+	await printer.closeBrowser();
 
 	const exportedPath = await mergePDF(normalizePages, outFile, outDir, pdfOutlines);
 	const message = `\nExported to ${pc.yellow(exportedPath)}\n`;

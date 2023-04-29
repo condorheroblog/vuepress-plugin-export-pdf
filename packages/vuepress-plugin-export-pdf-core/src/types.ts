@@ -3,6 +3,7 @@ export interface CommandOptions {
 	outDir?: string
 	outFile?: string
 	debug?: boolean
+	urlOrigin?: string
 	pdfOutlines?: boolean
 }
 

@@ -14,4 +14,5 @@ export interface UserConfig {
 	outFile?: string
 	outDir?: string
 	pdfOutlines?: boolean
+	urlOrigin?: string
 }
