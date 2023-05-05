@@ -8,12 +8,16 @@
   VuePress Plugin Export PDF
 </p>
 
-## Plugins
+## Guide
 
-- [@condorhero/vuepress-plugin-export-pdf-v1](https://github.com/condorheroblog/vuepress-plugin-export-pdf/blob/main/packages/vuepress-plugin-export-pdf-v1/README.md)
-- [@condorhero/vuepress-plugin-export-pdf-v2](https://github.com/condorheroblog/vuepress-plugin-export-pdf/blob/main/packages/vuepress-plugin-export-pdf-v2/README.md)
+- If you are using VuePress major version is 1.x, please use [@condorhero/vuepress-plugin-export-pdf-v1](https://github.com/condorheroblog/vuepress-plugin-export-pdf/blob/main/packages/vuepress-plugin-export-pdf-v1/README.md)
+- If you are using VuePress major version is 2.x, please use [@condorhero/vuepress-plugin-export-pdf-v2](https://github.com/condorheroblog/vuepress-plugin-export-pdf/blob/main/packages/vuepress-plugin-export-pdf-v2/README.md)
+- If you are using VitePress, please use [vitepress-export-pdf](https://github.com/condorheroblog/vitepress-export-pdf)
 
-go to [packages](https://github.com/condorheroblog/vuepress-plugin-export-pdf/blob/main/packages) folder.
+## Inspiration
+
+- [vuepress-plugin-export](https://github.com/ulivz/vuepress-plugin-export)
+- [vuepress-plugin-pdf-export](https://github.com/SnowdogApps/vuepress-plugin-pdf-export)
 
 ## Contributing
 

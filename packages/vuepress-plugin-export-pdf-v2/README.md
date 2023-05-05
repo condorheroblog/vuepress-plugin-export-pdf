@@ -1,10 +1,8 @@
 # @condorhero/vuepress-plugin-export-pdf-v2
 
-> If you are using `VuePress1.x`, please use [vuepress-plugin-export-pdf](https://github.com/condorheroblog/vuepress-plugin-export-pdf/blob/main/packages/vuepress-plugin-export-pdf-v1/README.md)
+`@condorhero/vuepress-plugin-export-pdf-v2` is a VuePress 2.x plugin that allows you to export your sites to a PDF file with **outlines or bookmarks**.
 
-`@condorhero/vuepress-plugin-export-pdf-v2` is a VuePress plugin that allows you to export your sites to a PDF file with **outlines or bookmarks**.
-
-<p align="center">
+<p align="left">
     <a href="https://www.npmjs.com/package/@condorhero/vuepress-plugin-export-pdf-v2" target="__blank">
         <img src="https://img.shields.io/npm/v/@condorhero/vuepress-plugin-export-pdf-v2.svg?color=a1b858" alt="NPM version">
     </a>
@@ -14,12 +12,10 @@
     <br />
 </p>
 
-> Inspired by [vuepress-plugin-export](https://github.com/ulivz/vuepress-plugin-export) and [vuepress-plugin-pdf-export](https://github.com/SnowdogApps/vuepress-plugin-pdf-export)
-
 ## Related
 
 - [vitepress-export-pdf](https://github.com/condorheroblog/vitepress-export-pdf)
-- [@condorhero/vuepress-plugin-export-pdf](https://github.com/condorheroblog/vuepress-plugin-export-pdf/blob/main/packages/vuepress-plugin-export-pdf-v1/README.md)
+- [@condorhero/vuepress-plugin-export-pdf-v1](https://github.com/condorheroblog/vuepress-plugin-export-pdf/blob/main/packages/vuepress-plugin-export-pdf-v1/README.md)
 
 ## Installation
 
@@ -41,9 +37,11 @@ Then run:
 ```sh
 npm run export-pdf
 ```
-## Usage
+## Demo
 
-### press-export-pdf
+A usable example of quick start [click here](./example/vuepress-next/).
+
+## `press-export-pdf` Command Options
 
 The package provides the `press-export-pdf` command with the following command line options:
 
@@ -60,7 +58,7 @@ The package provides the `press-export-pdf` command with the following command l
 - `--help`: Display help information
 - `--version`: Display version information
 
-## Config options
+## Config File Options
 
 You can create a new config file, we support the following files:
 
@@ -162,6 +160,29 @@ export default defineUserConfig({
 ```
 
 > Note: `!` at the beginning of a pattern will negate the match
+
+## Q&A
+
+Q: Is there any requirement for Node version to preserve PDF outline?
+
+A: Only if you use keep outline, the plugin uses `@condorhero/merge-pdfs`, and this package depends on `pyodide`, which requires Node version greater than `18.5.0`.
+
+Q: Is there anything users who use pnpm need to pay attention to?
+
+A: Only If you use the plugin's retain outline function(`pdfOutlines`), you need to add a little configuration to the project's `.npmrc` file.
+
+```bash
+# `.npmrc`
+public-hoist-pattern[]=pyodide
+```
+or
+
+```bash
+# `.npmrc`
+shamefully-hoist=true
+```
+
+[refer to this](https://github.com/condorheroblog/merge-pdfs#for-pnpm-users).
 
 ## Contributing
 

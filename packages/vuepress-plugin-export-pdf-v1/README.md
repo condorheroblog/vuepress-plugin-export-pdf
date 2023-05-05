@@ -1,10 +1,8 @@
 # @condorhero/vuepress-plugin-export-pdf
 
-> If you are using `VuePress2.x`, please use [vuepress-plugin-export-pdf-v2](https://github.com/condorheroblog/vuepress-plugin-export-pdf/blob/main/packages/vuepress-plugin-export-pdf-v2/README.md)
+`@condorhero/vuepress-plugin-export-pdf` is a VuePress 1.x plugin that allows you to export your sites to a PDF file with **outlines or bookmarks**.
 
-`@condorhero/vuepress-plugin-export-pdf` is a VuePress plugin that allows you to export your sites to a PDF file with **outlines or bookmarks**.
-
-<p align="center">
+<p align="left">
     <a href="https://www.npmjs.com/package/@condorhero/vuepress-plugin-export-pdf" target="__blank">
         <img src="https://img.shields.io/npm/v/@condorhero/vuepress-plugin-export-pdf.svg?color=a1b858" alt="NPM version">
     </a>
@@ -13,8 +11,6 @@
     </a>
     <br />
 </p>
-
-> Inspired by [vuepress-plugin-export](https://github.com/ulivz/vuepress-plugin-export) and [vuepress-plugin-pdf-export](https://github.com/SnowdogApps/vuepress-plugin-pdf-export)
 
 ## Related
 
@@ -41,9 +37,12 @@ Then run:
 ```sh
 npm run export-pdf
 ```
-## Usage
 
-### press-export-pdf
+## Demo
+
+A usable example of quick start [click here](./example/vue-press/).
+
+## `press-export-pdf` Command Options
 
 The package provides the `press-export-pdf` command with the following command line options:
 
@@ -61,28 +60,7 @@ The package provides the `press-export-pdf` command with the following command l
 - `--help`: Display help information
 - `--version`: Display version information
 
-### Via VuePress plugin
-
-`@condorhero/vuepress-plugin-export-pdf` exports a function called vuepressplugin, then use this function through VuePress plugin system.
-
-for example:
-
-```js
-module.exports = {
-	plugins: [
-		require("./my-plugin.js"),
-	],
-};
-```
-
-`my-plugin.js`:
-
-```js
-const { vuePressPlugin } = require("@condorhero/vuepress-plugin-export-pdf");
-module.exports = vuePressPlugin;
-```
-
-## Config options
+## Config file options
 
 You can create a new config file, we support the following files:
 
@@ -135,6 +113,27 @@ config options:
 - `urlOrigin`: Change the origin of the print url([How do I change the URL point to the localhost](https://github.com/condorheroblog/vuepress-plugin-export-pdf/issues/5))
 - `outlineContainerSelector`: Specify an outline container selector.
 
+## Use via VuePress plugin
+
+`@condorhero/vuepress-plugin-export-pdf` exports a function called vuepressplugin, then use this function through VuePress plugin system.
+
+for example:
+
+```js
+module.exports = {
+	plugins: [
+		require("./my-plugin.js"),
+	],
+};
+```
+
+`my-plugin.js`:
+
+```js
+const { vuePressPlugin } = require("@condorhero/vuepress-plugin-export-pdf");
+module.exports = vuePressPlugin;
+```
+
 ## PDF print style
 
 By default, `A4` paper is used for printing, The size of A4 paper is (8.27in x 11.7in), One inch is equal to ninety-six pixels: `1 in = 96 pixel (X)` ,the inch unit of A4 is converted to (793.92px x 1123.2px).
@@ -182,6 +181,30 @@ export default defineUserConfig({
 ```
 
 > Note: `!` at the beginning of a pattern will negate the match
+
+## Q&A
+
+Q: Is there any requirement for Node version to preserve PDF outline?
+
+A: Only if you use keep outline, the plugin uses `@condorhero/merge-pdfs`, and this package depends on `pyodide`, which requires Node version greater than `18.5.0`.
+
+Q: Is there anything users who use pnpm need to pay attention to?
+
+A: Only If you use the plugin's retain outline function(`pdfOutlines`), you need to add a little configuration to the project's `.npmrc` file.
+
+```bash
+# `.npmrc`
+public-hoist-pattern[]=pyodide
+```
+or
+
+```bash
+# `.npmrc`
+shamefully-hoist=true
+```
+
+[refer to this](https://github.com/condorheroblog/merge-pdfs#for-pnpm-users).
+
 
 ## Contributing
 
