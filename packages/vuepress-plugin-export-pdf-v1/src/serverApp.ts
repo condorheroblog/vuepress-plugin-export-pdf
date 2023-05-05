@@ -15,7 +15,7 @@ export interface ICommandOptions extends CommandOptions {
 }
 
 export const serverApp = async (dir = "docs", commandOptions: ICommandOptions = {}) => {
-	checkEnv(pkg.engines.node, version, pkg.peerDependencies.vuepress);
+	checkEnv("VuePress", pkg.engines.node, version, pkg.peerDependencies.vuepress);
 
 	const sourceDir = join(process.cwd(), dir);
 

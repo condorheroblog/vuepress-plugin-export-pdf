@@ -15,7 +15,12 @@ import semver from "semver";
  * @throws {Error} If the environment does not meet the minimum requirements.
  */
 
-export function checkEnv(appName = "VuePress", nodeVersion: string, appVersion: string, peerVersion: string) {
+export function checkEnv(
+	appName: string,
+	nodeVersion: string,
+	appVersion: string,
+	peerVersion: string,
+) {
 	if (!semver.satisfies(process.version, nodeVersion, { includePrerelease: true })) {
 		console.error(
       `\n[${appName}] minimum Node version not met:`

@@ -60,7 +60,7 @@ export const serverApp = async (dir = "docs", commandOptions: CommandOptions = {
 		host: "localhost",
 		port: 8714,
 	});
-	checkEnv(pkg.engines.node, devApp.version, pkg.peerDependencies.vuepress);
+	checkEnv("VuePress", pkg.engines.node, devApp.version, pkg.peerDependencies.vuepress);
 
 	// initialize and prepare
 	await devApp.init();
