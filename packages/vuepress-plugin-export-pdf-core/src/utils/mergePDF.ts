@@ -7,7 +7,7 @@ interface IPage {
 	location: string
 	pagePath: string
 	url: string
-	title: string
+	title?: string
 }
 
 /**

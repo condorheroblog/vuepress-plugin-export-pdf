@@ -8,7 +8,7 @@ export interface CommandOptions {
 }
 
 export interface Page {
-	title: string
+	title?: string
 	key: string
 	path: string
 }

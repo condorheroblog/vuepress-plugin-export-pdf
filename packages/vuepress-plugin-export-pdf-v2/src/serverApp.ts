@@ -50,6 +50,7 @@ export const serverApp = async (dir = "docs", commandOptions: CommandOptions = {
 		outDir = vuepressOutDir,
 		urlOrigin = commandOptions.urlOrigin,
 		pdfOutlines = commandOptions.pdfOutlines,
+		outlineContainerSelector,
 	} = userConfig;
 
 	const devApp = createDevApp({
@@ -85,6 +86,7 @@ export const serverApp = async (dir = "docs", commandOptions: CommandOptions = {
 			pdfOutlines,
 			routePatterns,
 			puppeteerLaunchOptions,
+			outlineContainerSelector,
 		});
 	}
 	catch (error) {

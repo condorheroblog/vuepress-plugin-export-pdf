@@ -17,4 +17,5 @@ export interface UserConfig {
 	outDir?: string
 	pdfOutlines?: boolean
 	urlOrigin?: string
+	outlineContainerSelector?: string
 }

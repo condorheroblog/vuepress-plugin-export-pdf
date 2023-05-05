@@ -113,6 +113,8 @@ config options:
 - `pdfOptions` - [Valid options to configure PDF generation via Page.pdf()](https://github.com/puppeteer/puppeteer/blob/main/docs/api/puppeteer.pdfoptions.md) (default `{ format: 'A4 }`)
 - `pdfOutlines` - Keep PDF outlines/bookmarks(default `true`)
 - `urlOrigin`: Change the origin of the print url([How do I change the URL point to the localhost](https://github.com/condorheroblog/vuepress-plugin-export-pdf/issues/5))
+- `outlineContainerSelector`: Specify an outline container selector.
+
 ## PDF print style
 
 By default, `A4` paper is used for printing, The size of A4 paper is (8.27in x 11.7in), One inch is equal to ninety-six pixels: `1 in = 96 pixel (X)` ,the inch unit of A4 is converted to (793.92px x 1123.2px).

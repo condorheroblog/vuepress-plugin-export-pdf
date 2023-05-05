@@ -23,10 +23,11 @@ export interface IGeneratePdfOptions {
 	pdfOptions?: PDFOptions
 	pdfOutlines?: boolean
 	urlOrigin?: string
+	outlineContainerSelector?: string
 }
 
 /**
- * Generate PDF from VuePress dev server.
+ * Generate PDF from VuePress or VitePress dev server.
  * @param param1 - IGeneratePdfOptions
  */
 export const generatePdf = async ({
@@ -42,7 +43,8 @@ export const generatePdf = async ({
 	pdfOutlines,
 	routePatterns,
 	puppeteerLaunchOptions,
-// eslint-disable-next-line sonarjs/cognitive-complexity
+	outlineContainerSelector,
+	// eslint-disable-next-line sonarjs/cognitive-complexity
 }: IGeneratePdfOptions) => {
 	const tempPdfDir = join(tempDir, "pdf");
 	fse.ensureDirSync(tempPdfDir);
@@ -70,7 +72,7 @@ export const generatePdf = async ({
 	const singleBar = createProgress();
 	singleBar.start(normalizePages.length);
 
-	const printer = new Printer();
+	const printer = new Printer({ outlineContainerSelector });
 	await printer.setup(puppeteerLaunchOptions);
 
 	for (const { location, pagePath, title } of normalizePages) {
@@ -114,7 +116,8 @@ export const generatePdf = async ({
 		});
 		await writeFileSafe(pagePath, data);
 
-		singleBar.increment(1, { headTitle: title });
+		const headTitle = title || await page.title();
+		singleBar.increment(1, { headTitle });
 	}
 
 	singleBar.stop();
