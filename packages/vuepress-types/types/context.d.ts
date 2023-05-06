@@ -1,3 +1,5 @@
+import type { EventEmitter } from "node:events";
+import type { Compiler, MultiCompiler } from "webpack";
 import type { ClientComputedMixin } from "./computed";
 import type { PluginConfig, SiteConfig, ThemeConfig } from "./config";
 import type { Markdown } from "./markdown";
@@ -16,19 +18,14 @@ export interface ContextConstructor {
 
 export type App = Context;
 
-export interface DevProcess {
+export interface DevProcess extends EventEmitter {
 	port: number
-	host: number
+	host: string
 	displayHost: string
+	// https://github.com/webpack/webpack-dev-server/blob/master/types/lib/Server.d.ts
 	server: {
-		compiler: {
-			hooks: {
-				done: {
-					tap: (name: string, callback: () => void) => void
-				}
-			}
-		}
-		close: () => void
+		compiler: Compiler | MultiCompiler
+		close(callback?: ((err?: Error) => void) | undefined): void
 	}
 }
 
