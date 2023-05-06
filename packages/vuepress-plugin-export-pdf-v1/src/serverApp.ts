@@ -59,6 +59,7 @@ export const serverApp = async (dir = "docs", commandOptions: ICommandOptions = 
 		outlineContainerSelector,
 	} = userConfig;
 
+	// https://github.com/vuejs/vuepress/blob/daa6404bf7b46331d0751af58a2c8a6c5c7cc3f9/packages/%40vuepress/core/lib/node/App.js#L468
 	const devContext = await dev({
 		sourceDir,
 		clearScreen: false,
@@ -66,6 +67,7 @@ export const serverApp = async (dir = "docs", commandOptions: ICommandOptions = 
 	});
 
 	await new Promise((resolve) => {
+		// https://github.com/vuejs/vuepress/blob/38e98634af117f83b6a32c8ff42488d91b66f663/packages/%40vuepress/core/lib/node/dev/index.js#L242
 		devContext.devProcess.server.compiler.hooks.done.tap("webpack-dev-server", () => {
 			process.stdout.write("VuePress dev server compiler done\n");
 			resolve(true);
@@ -102,6 +104,5 @@ export const serverApp = async (dir = "docs", commandOptions: ICommandOptions = 
 	}
 
 	// close current dev server
-	devContext.devProcess.server.close();
-	process.exit(0);
+	devContext.devProcess.server.close(() => process.exit(0));
 };

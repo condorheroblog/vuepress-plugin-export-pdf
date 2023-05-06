@@ -61,7 +61,7 @@
 		"debug": "^4.3.4"
 	},
 	"devDependencies": {
-		"@condorhero/vuepress-types": "^2.0.0",
+		"@condorhero/vuepress-types": "^2.0.1",
 		"@types/debug": "^4.1.7",
 		"vuepress": "^1.9.9"
 	},

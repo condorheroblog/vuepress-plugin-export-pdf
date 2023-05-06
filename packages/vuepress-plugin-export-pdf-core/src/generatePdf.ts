@@ -110,13 +110,14 @@ export const generatePdf = async ({
 		}
 
 		await printer.render(location);
+		const headTitle = title || await page.title();
 		const data = await printer.pdf(location, {
 			format: "A4",
 			...pdfOptions,
 		});
 		await writeFileSafe(pagePath, data);
 
-		const headTitle = title || await page.title();
+		await printer.closePage(location);
 		singleBar.increment(1, { headTitle });
 	}
 

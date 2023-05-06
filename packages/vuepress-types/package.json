@@ -1,6 +1,6 @@
 {
 	"name": "@condorhero/vuepress-types",
-	"version": "2.0.1",
+	"private": "true",
 	"description": "VuePress TypeScript helpers for 1.x",
 	"author": "CondorHero",
 	"license": "MIT",

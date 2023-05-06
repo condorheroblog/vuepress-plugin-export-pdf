@@ -1,4 +1,5 @@
 import { join } from "node:path";
+import { createRequire } from "node:module";
 import { createDevApp, defaultTheme, viteBundler } from "vuepress";
 import debug from "debug";
 import type { CommandOptions } from "@condorhero/vuepress-plugin-export-pdf-core";
@@ -9,7 +10,11 @@ import type { UserConfig } from ".";
 
 const devDebug = debug("vuepress-plugin-export-pdf-v2:dev-server");
 
+export const moduleRequire = createRequire(import.meta.url);
+const { version } = moduleRequire("vuepress/package.json");
+
 export const serverApp = async (dir = "docs", commandOptions: CommandOptions = {}) => {
+	checkEnv("VuePress", pkg.engines.node, version, pkg.peerDependencies.vuepress);
 	const sourceDir = join(process.cwd(), dir);
 
 	if (commandOptions.debug)
@@ -60,7 +65,6 @@ export const serverApp = async (dir = "docs", commandOptions: CommandOptions = {
 		host: "localhost",
 		port: 8714,
 	});
-	checkEnv("VuePress", pkg.engines.node, devApp.version, pkg.peerDependencies.vuepress);
 
 	// initialize and prepare
 	await devApp.init();
@@ -94,6 +98,6 @@ export const serverApp = async (dir = "docs", commandOptions: CommandOptions = {
 	}
 
 	// close current dev server
-	closeDevServer();
+	await closeDevServer();
 	process.exit(0);
 };
