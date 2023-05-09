@@ -17,7 +17,7 @@ export const registerCommands = (program: CAC, extendCliConfig?: UserConfig) => 
 		.option("--theme <theme>", "Set VuePress theme")
 		.option("--outFile <outFile>", "Name of output file")
 		.option("--outDir <outDir>", "Directory of output files")
-		.option("--urlOrigin <urlOrigin>", "Change the origin of the print url")
+		.option("--urlOrigin <urlOrigin>", "Change the origin of the print url(Option displayHeaderFooter of pdfOptions is true)")
 		.option("--debug", "Enable debug mode")
 		.action((file: string, config: Record<string, string>) => {
 			serverApp(file, extendCliConfig ?? config);
