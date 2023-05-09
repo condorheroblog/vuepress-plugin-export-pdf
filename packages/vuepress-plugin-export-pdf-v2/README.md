@@ -110,7 +110,7 @@ config options:
 - `puppeteerLaunchOptions` - [Puppeteer launch options object](https://github.com/puppeteer/puppeteer/blob/main/docs/api/puppeteer.puppeteerlaunchoptions.md)
 - `pdfOptions` - [Valid options to configure PDF generation via Page.pdf()](https://github.com/puppeteer/puppeteer/blob/main/docs/api/puppeteer.pdfoptions.md) (default `{ format: 'A4 }`)
 - `pdfOutlines` - Keep PDF outlines/bookmarks(default `true`)
-- `urlOrigin`: Change the origin of the print url((Option `displayHeaderFooter` of `pdfOptions` is true)) - ([How do I change the URL point to the localhost](https://github.com/condorheroblog/vuepress-plugin-export-pdf/issues/5))
+- `urlOrigin`: Change the origin of the print url(Option `displayHeaderFooter` of `pdfOptions` is true) - ([How do I change the URL point to the localhost](https://github.com/condorheroblog/vuepress-plugin-export-pdf/issues/5))
 - `outlineContainerSelector`: Specify an outline container selector.
 
 ## PDF print style
