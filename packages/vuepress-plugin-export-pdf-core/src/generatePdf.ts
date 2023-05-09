@@ -59,12 +59,17 @@ export const generatePdf = async ({
 		process.stdout.write(pc.red(`${urlOrigin} is not a valid URL`));
 		process.exit(1);
 	}
+	let userURLOrigin = "";
+	if (urlOrigin && isValidUrlOrigin)
+		userURLOrigin = new URL(urlOrigin).origin;
+
+	const localURLOrigin = `${host}:${port}`;
 
 	const normalizePages = exportPages.map((page) => {
 		return {
 			url: page.path,
 			title: page.title,
-			location: urlOrigin ? `${new URL(urlOrigin).origin}${page.path}` : `http://${host}:${port}${page.path}`,
+			location: urlOrigin ? `${userURLOrigin}${page.path}` : `http://${localURLOrigin}${page.path}`,
 			pagePath: `${tempPdfDir}/${page.key}.pdf`,
 		};
 	});
@@ -85,23 +90,28 @@ export const generatePdf = async ({
 				// http or https
 				if (isValidUrl(reqUrl)) {
 					const parsedUrl = new URL(reqUrl);
-					parsedUrl.host = host;
-					parsedUrl.protocol = "http:";
-					parsedUrl.port = `${port}`;
-					const parsedUrlString = parsedUrl.toString();
-					request.continue({
-						url: parsedUrlString,
-						headers: Object.assign(
-							{},
-							request.headers(),
-							{
-								refer: parsedUrlString,
+					if (userURLOrigin === parsedUrl.origin) {
+						parsedUrl.host = host;
+						parsedUrl.protocol = "http:";
+						parsedUrl.port = `${port}`;
+						const parsedUrlString = parsedUrl.toString();
+						request.continue({
+							url: parsedUrlString,
+							headers: Object.assign(
+								{},
+								request.headers(),
+								{
+									refer: parsedUrlString,
 								// Same origin
 								// origin: parsedUrl.origin,
 								// CORS
 								// host: parsedUrl.host,
-							}),
-					});
+								}),
+						});
+					}
+					else {
+						request.continue();
+					}
 				}
 				else {
 					request.continue();
