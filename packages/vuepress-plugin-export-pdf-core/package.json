@@ -1,7 +1,7 @@
 {
 	"name": "@condorhero/vuepress-plugin-export-pdf-core",
 	"type": "module",
-	"version": "3.0.0-beta.3",
+	"version": "3.0.0",
 	"description": "The Core of VuePress and VitePress exports PDF plugin",
 	"author": "CondorHero",
 	"license": "MIT",
