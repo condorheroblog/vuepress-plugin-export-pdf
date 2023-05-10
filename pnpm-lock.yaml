@@ -26,8 +26,8 @@ importers:
         specifier: ^13.2.2
         version: registry.npmmirror.com/lint-staged@13.2.2
       pnpm:
-        specifier: ^8.4.0
-        version: registry.npmmirror.com/pnpm@8.4.0
+        specifier: ^8.5.0
+        version: registry.npmmirror.com/pnpm@8.5.0
       typescript:
         specifier: ^5.0.4
         version: registry.npmmirror.com/typescript@5.0.4
@@ -41,8 +41,8 @@ importers:
   packages/vuepress-plugin-export-pdf-core:
     dependencies:
       '@condorhero/merge-pdfs':
-        specifier: ^0.0.5
-        version: registry.npmmirror.com/@condorhero/merge-pdfs@0.0.5
+        specifier: ^0.0.6
+        version: registry.npmmirror.com/@condorhero/merge-pdfs@0.0.6
       bundle-require:
         specifier: ^4.0.1
         version: registry.npmmirror.com/bundle-require@4.0.1(esbuild@0.17.18)
@@ -1694,10 +1694,10 @@ packages:
       - typescript
     dev: true
 
-  registry.npmmirror.com/@condorhero/merge-pdfs@0.0.5:
-    resolution: {integrity: sha512-/jdTQVMhSFjkvaUGnfzjKg88rCBRUFhWKP/McG2wHqgKDzVAck23eks9GxqjmbN32961zWeEN5JDRvNe9N/iPg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@condorhero/merge-pdfs/-/merge-pdfs-0.0.5.tgz}
+  registry.npmmirror.com/@condorhero/merge-pdfs@0.0.6:
+    resolution: {integrity: sha512-sg2PeWFRMjvll83pWlVzumd19jDq1X3KsEHtHDuydt0LzRmLvz+82aN6QrWpyXm1DPEFSMriE7jffDYLH9XOZw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@condorhero/merge-pdfs/-/merge-pdfs-0.0.6.tgz}
     name: '@condorhero/merge-pdfs'
-    version: 0.0.5
+    version: 0.0.6
     engines: {node: '>=18.5.0'}
     hasBin: true
     dependencies:
@@ -12234,10 +12234,10 @@ packages:
     engines: {node: '>=4'}
     dev: true
 
-  registry.npmmirror.com/pnpm@8.4.0:
-    resolution: {integrity: sha512-oW5jpFgCmXHIVOU5HZLBWGBtCH7K4JSRdpk7/f+Dtp+KhUsX5NQaWzzYyU9TX7eAsfYMko179133gbUS+JTrMw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/pnpm/-/pnpm-8.4.0.tgz}
+  registry.npmmirror.com/pnpm@8.5.0:
+    resolution: {integrity: sha512-eGki4/2GIMFivfbKHIDo1mP1vFvMi39Mh9TxcBHZcFWj09zGzCYD04e05j/60sUkJ1yyzSAszkchBxp9PSL7Ew==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/pnpm/-/pnpm-8.5.0.tgz}
     name: pnpm
-    version: 8.4.0
+    version: 8.5.0
     engines: {node: '>=16.14'}
     hasBin: true
     dev: true

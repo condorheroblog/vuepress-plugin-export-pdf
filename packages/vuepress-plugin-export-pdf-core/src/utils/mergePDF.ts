@@ -1,4 +1,5 @@
 import { join, relative } from "node:path";
+import type { Buffer } from "node:buffer";
 import fse from "fs-extra";
 import { mergePDFs } from "@condorhero/merge-pdfs";
 import pdf from "pdfjs";
@@ -31,23 +32,24 @@ export const mergePDF = async (
 		fse.moveSync(pages[0].pagePath, saveFilePath, { overwrite: true });
 	}
 	else {
+		let pdfData: Buffer;
 		if (pdfOutlines) {
-			const pdfData = await mergePDFs(pages.map(({ pagePath }) => pagePath));
-			fse.writeFileSync(saveFilePath, pdfData, { encoding: "binary" });
+			pdfData = await mergePDFs(pages.map(({ pagePath }) => pagePath));
 		}
 		else {
-			const mergedPdf = new pdf.Document();
+			const doc = new pdf.Document();
 
 			pages
 				.map(({ pagePath }) => fse.readFileSync(pagePath))
-				.forEach((file) => {
-					const page = new pdf.ExternalDocument(file);
-					mergedPdf.addPagesOf(page);
+				.forEach((pdfFileItem) => {
+					const pageFile = new pdf.ExternalDocument(pdfFileItem);
+					doc.addPagesOf(pageFile);
 				});
 
-			const pdfData = await mergedPdf.asBuffer();
-			fse.writeFileSync(saveFilePath, pdfData, { encoding: "binary" });
+			pdfData = await doc.asBuffer();
 		}
+
+		fse.writeFileSync(saveFilePath, pdfData, { encoding: "binary" });
 	}
 
 	return relative(process.cwd(), saveFilePath);
