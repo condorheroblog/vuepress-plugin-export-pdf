@@ -10,7 +10,7 @@ import { mergePDF } from ".";
 
 export type UserSorter = (a: Page, b: Page) => number;
 
-export interface IGeneratePdfOptions {
+export interface GeneratePdfOptions {
 	pages: Page[]
 	tempDir: string
 	port: number
@@ -28,7 +28,7 @@ export interface IGeneratePdfOptions {
 
 /**
  * Generate PDF from VuePress or VitePress dev server.
- * @param param1 - IGeneratePdfOptions
+ * @param param1 - GeneratePdfOptions
  */
 export const generatePdf = async ({
 	pages,
@@ -45,7 +45,7 @@ export const generatePdf = async ({
 	puppeteerLaunchOptions,
 	outlineContainerSelector,
 	// eslint-disable-next-line sonarjs/cognitive-complexity
-}: IGeneratePdfOptions) => {
+}: GeneratePdfOptions) => {
 	const tempPdfDir = join(tempDir, "pdf");
 	fse.ensureDirSync(tempPdfDir);
 

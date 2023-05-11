@@ -10,11 +10,11 @@ import type { UserConfig } from ".";
 
 const devDebug = debug("vuepress-plugin-export-pdf:dev-server");
 
-export interface ICommandOptions extends CommandOptions {
+export interface CommandOptionsType extends CommandOptions {
 	theme?: string
 }
 
-export const serverApp = async (dir = "docs", commandOptions: ICommandOptions = {}) => {
+export const serverApp = async (dir = "docs", commandOptions: CommandOptionsType = {}) => {
 	checkEnv("VuePress", pkg.engines.node, version, pkg.peerDependencies.vuepress);
 
 	const sourceDir = join(process.cwd(), dir);

@@ -4,7 +4,7 @@ import fse from "fs-extra";
 import { mergePDFs } from "@condorhero/merge-pdfs";
 import pdf from "pdfjs";
 
-interface IPage {
+export interface NormalizePage {
 	location: string
 	pagePath: string
 	url: string
@@ -13,13 +13,13 @@ interface IPage {
 
 /**
  * Merge PDFs.
- * @param pages - Pages
+ * @param pages - NormalizePage
  * @param outFile - Output file
  * @param outDir - Output directory
  * @returns relativePath - Output relative path
  */
 export const mergePDF = async (
-	pages: IPage[],
+	pages: NormalizePage[],
 	outFile: string,
 	outDir: string,
 	pdfOutlines = true,
