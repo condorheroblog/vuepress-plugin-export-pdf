@@ -4,7 +4,7 @@ import { head, navbarEn, navbarZh, sidebarEn, sidebarZh, bundler } from "./confi
 
 export default defineUserConfig({
   // set site base to default value
-  base: '/',
+  base: '/docs/',
 
   title: 'vuepress-next',
   lang: 'en-US',

@@ -95,9 +95,14 @@ export const serverApp = async (dir = "docs", commandOptions: CommandOptions = {
 	process.stdout.write("Start to generate current site to PDF ...");
 
 	const { pages, options: { temp: tempPath } } = devApp;
+	const hashPages = pages.map(page => ({
+		// join => /docs//zh/
+		path: join(`${devApp.siteData.base}${page.path}`),
+		key: page.key,
+	}));
 	try {
 		await generatePdf({
-			pages,
+			pages: hashPages,
 			tempDir: tempPath,
 			port: devApp.options.port,
 			host: devApp.options.host,
