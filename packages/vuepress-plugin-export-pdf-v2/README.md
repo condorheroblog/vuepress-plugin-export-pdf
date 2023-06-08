@@ -3,13 +3,15 @@
 `@condorhero/vuepress-plugin-export-pdf-v2` is a VuePress 2.x plugin that allows you to export your sites to a PDF file with **outlines or bookmarks**.
 
 <p align="left">
-    <a href="https://www.npmjs.com/package/@condorhero/vuepress-plugin-export-pdf-v2" target="__blank">
-        <img src="https://img.shields.io/npm/v/@condorhero/vuepress-plugin-export-pdf-v2.svg?color=a1b858" alt="NPM version">
-    </a>
-    <a href="https://www.npmjs.com/package/@condorhero/vuepress-plugin-export-pdf-v2" target="__blank">
-        <img alt="NPM Downloads" src="https://img.shields.io/npm/dm/@condorhero/vuepress-plugin-export-pdf-v2.svg?color=50a36f">
-    </a>
-    <br />
+	<a href="https://www.npmjs.com/package/@condorhero/vuepress-plugin-export-pdf-v2" target="__blank">
+		<img src="https://img.shields.io/npm/v/@condorhero/vuepress-plugin-export-pdf-v2.svg?color=a1b858" alt="NPM version">
+	</a>
+	<a href="https://www.npmjs.com/package/@condorhero/vuepress-plugin-export-pdf-v2" target="__blank">
+		<img alt="NPM Downloads" src="https://img.shields.io/npm/dm/@condorhero/vuepress-plugin-export-pdf-v2.svg?color=50a36f">
+	</a>
+	<a href="https://github.com/condorheroblog/vuepress-plugin-export-pdf" target="__blank">
+		<img alt="GitHub stars" src="https://img.shields.io/github/stars/condorheroblog/vuepress-plugin-export-pdf?style=social">
+	</a>
 </p>
 
 ## Related
@@ -37,9 +39,6 @@ Then run:
 ```sh
 npm run export-pdf
 ```
-## Demo
-
-A usable example of quick start [click here](./example/vuepress-next/).
 
 ## `press-export-pdf` Command Options
 
@@ -48,12 +47,12 @@ The package provides the `press-export-pdf` command with the following command l
 ![vuepress-plugin-export-pdf-v2.svg](./assets/vuepress-plugin-export-pdf-v2.svg)
 
 - `export [sourceDir]`: Export your site to a PDF file
-  - `-c, --config <config>`: Set path to config file
-  - `--outFile <outFile>`: Name of output file
-  - `--outDir <outDir>`: Directory of output files
-  - `--pdfOutlines <pdfOutlines>`: Keep PDF outlines/bookmarks
-  - `--urlOrigin <urlOrigin>`: Change the origin of the print url(Option `displayHeaderFooter` of `pdfOptions` is true)
-  - `--debug`: Enable debug mode
+	- `-c, --config <config>`: Set path to config file
+	- `--outFile <outFile>`: Name of output file
+	- `--outDir <outDir>`: Directory of output files
+	- `--pdfOutlines <pdfOutlines>`: Keep PDF outlines/bookmarks([**Node >= 18.5.0**](https://github.com/condorheroblog/vuepress-plugin-export-pdf/tree/v3.0.1/packages/vuepress-plugin-export-pdf-v2#qa))
+	- `--urlOrigin <urlOrigin>`: Change the origin of the print url(Option `displayHeaderFooter` of `pdfOptions` is true)
+	- `--debug`: Enable debug mode
 - `info`: Display environment information
 - `--help`: Display help information
 - `--version`: Display version information
@@ -108,36 +107,36 @@ config options:
 - `outDir` - Directory of output files (default `package.json` file exists in directory)
 - `routePatterns` - Specify the patterns of files you want to be exported. The patterns are relative to the source directory (default `["/**", "!/404.html"]`).Patterns to match Route path using [multimatch](https://github.com/sindresorhus/multimatch)
 - `puppeteerLaunchOptions` - [Puppeteer launch options object](https://github.com/puppeteer/puppeteer/blob/main/docs/api/puppeteer.puppeteerlaunchoptions.md)
-- `pdfOptions` - [Valid options to configure PDF generation via Page.pdf()](https://github.com/puppeteer/puppeteer/blob/main/docs/api/puppeteer.pdfoptions.md) (default `{ format: 'A4 }`)
+- `pdfOptions` - [Valid options to configure PDF generation via Page.pdf()](https://github.com/puppeteer/puppeteer/blob/main/docs/api/puppeteer.pdfoptions.md) (default `{ format: 'A4 }`), **`pageNumber` and `totalPages` of `headerTemplate` and `footerTemplate` cannot be used because of [this reason](https://github.com/condorheroblog/vitepress-export-pdf/issues/5)**
 - `pdfOutlines` - Keep PDF outlines/bookmarks(default `true`)
 - `urlOrigin`: Change the origin of the print url(Option `displayHeaderFooter` of `pdfOptions` is true) - ([How do I change the URL point to the localhost](https://github.com/condorheroblog/vuepress-plugin-export-pdf/issues/5))
 - `outlineContainerSelector`: Specify an outline container selector.
 
-## PDF print style
-
-By default, `A4` paper is used for printing, The size of A4 paper is (8.27in x 11.7in), One inch is equal to ninety-six pixels: `1 in = 96 pixel (X)` ,the inch unit of A4 is converted to (793.92px x 1123.2px).
-
-The layout of VuePress itself is responsive, which should meet your needs. If you change the size of the printing paper or don't want some styles on the website to be input into PDF, you need to simply write some CSS styles.
-
-It is recommended that you change it in the [global style](https://v2.vuepress.vuejs.org/reference/default-theme/styles.html) of VuePress(`.vuepress/styles/index.scss`), use the `print` of `@media` to control CSS style.
-
-for example:
-
-```styl
-@media print {
-  .navbar,
-  .sidebar,
-  .sidebar-mask,
-  .page-edit,
-  .page-nav {
-    display: none;
-  }
-}
-```
-
-![print-style.png](./assets/print-style.png)
-
 ## Examples
+
+A usable example of quick start [click here](./example/vuepress-next/).
+
+### Order of PDF
+
+`console.log` all the routes in the sort function and assign them to the variable `routeOrder` as a value. You can adjust the order of printing in the array `routeOrder`.
+
+```ts
+import { defineUserConfig } from "vitepress-export-pdf";
+const routeOrder = [
+	"/index.html",
+	"/guide/what-is-vitepress.html",
+	"/guide/getting-started.html",
+	"/guide/configuration.html",
+	// ...
+];
+export default defineUserConfig({
+	sorter: (pageA, pageB) => {
+		const aIndex = routeOrder.findIndex(route => route === pageA.path);
+		const bIndex = routeOrder.findIndex(route => route === pageB.path);
+		return aIndex - bIndex;
+	},
+});
+```
 
 ### Discard your outlines/bookmarks
 
@@ -161,11 +160,29 @@ export default defineUserConfig({
 
 > Note: `!` at the beginning of a pattern will negate the match
 
-## Q&A
+### PDF print style
 
-Q: Is there any requirement for Node version to preserve PDF outline?
+By default, `A4` paper is used for printing, The size of A4 paper is (8.27in x 11.7in), One inch is equal to ninety-six pixels: `1 in = 96 pixel (X)` ,the inch unit of A4 is converted to (793.92px x 1123.2px).
 
-A: Only if you use keep outline, the plugin uses `@condorhero/merge-pdfs`, and this package depends on `pyodide`, which requires Node version greater than `18.5.0`.
+The layout of VuePress itself is responsive, which should meet your needs. If you change the size of the printing paper or don't want some styles on the website to be input into PDF, you need to simply write some CSS styles.
+
+It is recommended that you change it in the [global style](https://v2.vuepress.vuejs.org/reference/default-theme/styles.html) of VuePress(`.vuepress/styles/index.scss`), use the `print` of `@media` to control CSS style.
+
+for example:
+
+```styl
+@media print {
+	.navbar,
+	.sidebar,
+	.sidebar-mask,
+	.page-edit,
+	.page-nav {
+		display: none;
+	}
+}
+```
+
+![print-style.png](./assets/print-style.png)
 
 ## Contributing
 
