@@ -1,9 +1,22 @@
 import { join } from "node:path";
 import { createRequire } from "node:module";
-import { createDevApp, defaultTheme, viteBundler } from "vuepress";
+import {
+	createDevApp,
+	defaultTheme,
+	loadUserConfig,
+	resolveUserConfigConventionalPath as resolveVuePressConfig,
+	transformUserConfigToPlugin,
+	viteBundler,
+} from "vuepress";
 import debug from "debug";
 import type { CommandOptions } from "@condorhero/vuepress-plugin-export-pdf-core";
-import { checkEnv, generatePdf, loadModule, resolveUserConfigConventionalPath, resolveUserConfigPath, timeTransformer } from "@condorhero/vuepress-plugin-export-pdf-core";
+import {
+	checkEnv, generatePdf,
+	loadModule,
+	resolveUserConfigConventionalPath,
+	resolveUserConfigPath,
+	timeTransformer,
+} from "@condorhero/vuepress-plugin-export-pdf-core";
 
 import pkg from "../package.json";
 import type { UserConfig } from ".";
@@ -45,8 +58,8 @@ export const serverApp = async (dir = "docs", commandOptions: CommandOptions = {
 	devDebug("userConfig: %O", userConfig);
 
 	const {
-		theme = defaultTheme(),
-		bundler = viteBundler(),
+		theme,
+		bundler,
 		sorter,
 		puppeteerLaunchOptions,
 		pdfOptions,
@@ -58,13 +71,19 @@ export const serverApp = async (dir = "docs", commandOptions: CommandOptions = {
 		outlineContainerSelector,
 	} = userConfig;
 
+	const { userConfig: vuePressConfig } = await loadUserConfig(resolveVuePressConfig(sourceDir));
+
 	const devApp = createDevApp({
 		source: sourceDir,
-		bundler,
-		theme,
+		...vuePressConfig,
+		bundler: bundler || vuePressConfig.bundler || viteBundler(),
+		theme: theme || vuePressConfig.theme || defaultTheme(),
 		host: "localhost",
 		port: 8714,
 	});
+
+	// use user-config plugin
+	devApp.use(transformUserConfigToPlugin(userConfig, sourceDir));
 
 	// initialize and prepare
 	await devApp.init();
