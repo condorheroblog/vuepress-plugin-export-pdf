@@ -2,8 +2,8 @@ import { join, relative } from "node:path";
 import type { Buffer } from "node:buffer";
 import fse from "fs-extra";
 import { mergePDFs } from "@condorhero/merge-pdfs";
+import pc from "picocolors";
 import pdf from "pdfjs";
-
 export interface NormalizePage {
 	location: string
 	pagePath: string
@@ -28,7 +28,11 @@ export const mergePDF = async (
 	outDir && fse.ensureDirSync(saveDirPath);
 	const saveFilePath = join(saveDirPath, outFile);
 
-	if (pages.length === 1) {
+	if (pages.length === 0) {
+		process.stdout.write(pc.red("The website has no pages, please check whether the export path is set correctly"));
+		process.exit(1);
+	}
+	else if (pages.length === 1) {
 		fse.moveSync(pages[0].pagePath, saveFilePath, { overwrite: true });
 	}
 	else {
