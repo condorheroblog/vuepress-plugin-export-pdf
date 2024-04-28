@@ -1,4 +1,5 @@
-import { defaultTheme, defineUserConfig } from 'vuepress'
+import { defineUserConfig } from 'vuepress'
+import { defaultTheme } from '@vuepress/theme-default'
 import { description } from '../../package.json'
 import { bundler, head, navbarEn, navbarZh, sidebarEn, sidebarZh } from './configs'
 

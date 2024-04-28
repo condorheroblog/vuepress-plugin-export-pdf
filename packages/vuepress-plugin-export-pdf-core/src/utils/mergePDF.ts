@@ -5,6 +5,7 @@ import fse from 'fs-extra'
 import { mergePDFs } from '@condorhero/merge-pdfs'
 import pc from 'picocolors'
 import pdf from 'pdfjs'
+import { convertPathToPosix } from './convertPathToPosix'
 
 export interface NormalizePage {
   location: string
@@ -35,7 +36,11 @@ export async function mergePDF(pages: NormalizePage[], outFile: string, outDir: 
   else {
     let pdfData: Buffer
     if (pdfOutlines) {
-      pdfData = await mergePDFs(pages.map(({ pagePath }) => pagePath))
+      pdfData = await mergePDFs(pages.map(({ pagePath }) => {
+        // return convertPathToPosix(pagePath)
+        // TODO
+        return pagePath
+      }))
     }
     else {
       const doc = new pdf.Document()

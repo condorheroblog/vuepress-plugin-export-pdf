@@ -17,7 +17,8 @@
   },
   "devDependencies": {
     "@condorhero/vuepress-plugin-export-pdf-v2": "workspace:^",
-    "@vuepress/client": "^2.0.0-rc.2",
+    "@vuepress/bundler-vite": "^2.0.0-rc.9",
+    "@vuepress/theme-default": "^2.0.0-rc.26",
     "vue": "^3.4.25",
     "vuepress": "^2.0.0-rc.9"
   }

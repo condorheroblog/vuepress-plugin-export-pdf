@@ -3,11 +3,9 @@ import process from 'node:process'
 import { createRequire } from 'node:module'
 import {
   createDevApp,
-  defaultTheme,
   loadUserConfig,
   resolveUserConfigConventionalPath as resolveVuePressConfig,
   transformUserConfigToPlugin,
-  viteBundler,
 } from 'vuepress'
 import debug from 'debug'
 import type { CommandOptions } from '@condorhero/vuepress-plugin-export-pdf-core'
@@ -75,11 +73,19 @@ export async function serverApp(dir = 'docs', commandOptions: CommandOptions = {
 
   const { userConfig: vuePressConfig } = await loadUserConfig(resolveVuePressConfig(sourceDir))
 
+  const siteBundler = bundler || vuePressConfig.bundler
+  const siteTheme = theme || vuePressConfig.theme
+  // TODO 测试
+  if (siteBundler === undefined || siteTheme === undefined) {
+    process.stdout.write('error The bundler or theme option is missing. For more details: https://v2.vuepress.vuejs.org/guide/troubleshooting.html#the-bundler-theme-option-is-missing')
+    process.exit(0)
+  }
+
   const devApp = createDevApp({
     source: sourceDir,
     ...vuePressConfig,
-    bundler: bundler || vuePressConfig.bundler || viteBundler(),
-    theme: theme || vuePressConfig.theme || defaultTheme(),
+    bundler: siteBundler,
+    theme: siteTheme,
     host: 'localhost',
     port: 8714,
   })
@@ -100,6 +106,9 @@ export async function serverApp(dir = 'docs', commandOptions: CommandOptions = {
   const hashPages = pages.map(page => ({
     // join => /docs//zh/
     path: join(`${devApp.siteData.base}${page.path}`),
+    // TODO
+    // eslint-disable-next-line ts/ban-ts-comment
+    // @ts-expect-error
     key: page.key,
   }))
   try {
