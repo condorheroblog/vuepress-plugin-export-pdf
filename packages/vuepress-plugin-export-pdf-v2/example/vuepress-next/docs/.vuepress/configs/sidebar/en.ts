@@ -18,6 +18,6 @@ export const sidebarEn: SidebarConfig = {
         '/advanced/plugin.md',
         '/advanced/theme.md',
       ],
-    }
-  ]
+    },
+  ],
 }

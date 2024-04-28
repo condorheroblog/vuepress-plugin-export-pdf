@@ -1,14 +1,14 @@
-import { defineBuildConfig } from "unbuild";
-import fg from "fast-glob";
+import { defineBuildConfig } from 'unbuild'
+import fg from 'fast-glob'
 
 export default defineBuildConfig({
-	entries: [
-		...fg.sync("src/*.ts").map(i => i.slice(0, -3)),
-	],
-	clean: true,
-	declaration: true,
-	rollup: {
-		emitCJS: true,
-		inlineDependencies: true,
-	},
-});
+  entries: [
+    ...fg.sync('src/*.ts').map(i => i.slice(0, -3)),
+  ],
+  clean: true,
+  declaration: true,
+  rollup: {
+    emitCJS: true,
+    inlineDependencies: true,
+  },
+})

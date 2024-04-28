@@ -49,7 +49,6 @@ Each Markdown file is compiled into HTML with [markdown-it](https://github.com/m
 * [Documentation](https://vuepress-theme-blog.billyyyyy3320.com/)
 * [Live Example](https://billyyyyy3320.com/)
 
-
 **Plugin**
 
 * [Powerful Plugin API](../plugin/README.md)

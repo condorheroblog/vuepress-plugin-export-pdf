@@ -1,6 +1,6 @@
-import { description } from '../../package.json';
-import { defineUserConfig, defaultTheme } from "vuepress";
-import { head, navbarEn, navbarZh, sidebarEn, sidebarZh, bundler } from "./configs";
+import { defaultTheme, defineUserConfig } from 'vuepress'
+import { description } from '../../package.json'
+import { bundler, head, navbarEn, navbarZh, sidebarEn, sidebarZh } from './configs'
 
 export default defineUserConfig({
   // set site base to default value
@@ -16,7 +16,7 @@ export default defineUserConfig({
   markdown: {
     code: {
       lineNumbers: true,
-    }
+    },
   },
 
   // site-level locales config

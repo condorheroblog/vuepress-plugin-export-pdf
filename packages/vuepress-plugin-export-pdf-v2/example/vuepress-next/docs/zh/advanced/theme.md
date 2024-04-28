@@ -9,31 +9,31 @@
 VuePress 主题是一个特殊的插件，它应该符合 [主题 API](../reference/theme-api.md) 。和插件一样，主题可以是一个 *主题对象* 或一个 *主题函数* ，并且通常通过一个函数来接收配置项：
 
 ```js
-const { path } = require("@vuepress/utils");
+const { path } = require('@vuepress/utils')
 
-const fooTheme = (options) => {
-	return {
-		name: "vuepress-theme-foo",
-		layouts: {
-			Layout: path.resolve(__dirname, "layouts/Layout.vue"),
-			404: path.resolve(__dirname, "layouts/404.vue"),
-		},
-		// ...
-	};
-};
+function fooTheme(options) {
+  return {
+    name: 'vuepress-theme-foo',
+    layouts: {
+      Layout: path.resolve(__dirname, 'layouts/Layout.vue'),
+      404: path.resolve(__dirname, 'layouts/404.vue'),
+    },
+    // ...
+  }
+}
 
-const barTheme = (options) => {
-	return (app) => {
-		return {
-			name: "vuepress-theme-bar",
-			layouts: {
-				Layout: path.resolve(__dirname, "layouts/Layout.vue"),
-				404: path.resolve(__dirname, "layouts/404.vue"),
-			},
-			// ...
-		};
-	};
-};
+function barTheme(options) {
+  return (app) => {
+    return {
+      name: 'vuepress-theme-bar',
+      layouts: {
+        Layout: path.resolve(__dirname, 'layouts/Layout.vue'),
+        404: path.resolve(__dirname, 'layouts/404.vue'),
+      },
+      // ...
+    }
+  }
+}
 ```
 
 `layouts` 字段声明了你的主题提供的布局。一个主题必须提供至少两个布局：`Layout` 和 `404` 。前者用于提供一般页面的默认布局，后者用于提供 404 页面的布局。
@@ -64,10 +64,10 @@ const barTheme = (options) => {
 
 ```json
 {
-	"name": "vuepress-theme-foo",
-	"keywords": [
-		"vuepress-theme"
-	]
+  "name": "vuepress-theme-foo",
+  "keywords": [
+    "vuepress-theme"
+  ]
 }
 ```
 

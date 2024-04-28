@@ -9,31 +9,31 @@ Before reading this guide, you'd better learn the guide of [Writing a Plugin](./
 A VuePress theme is a special plugin, which should satisfy the [Theme API](../reference/theme-api.md). Like plugins, a theme should also be a *Theme Object* or a *Theme Function*, and could be wrapped with a function to receive options:
 
 ```js
-const { path } = require("@vuepress/utils");
+const { path } = require('@vuepress/utils')
 
-const fooTheme = (options) => {
-	return {
-		name: "vuepress-theme-foo",
-		layouts: {
-			Layout: path.resolve(__dirname, "layouts/Layout.vue"),
-			404: path.resolve(__dirname, "layouts/404.vue"),
-		},
-		// ...
-	};
-};
+function fooTheme(options) {
+  return {
+    name: 'vuepress-theme-foo',
+    layouts: {
+      Layout: path.resolve(__dirname, 'layouts/Layout.vue'),
+      404: path.resolve(__dirname, 'layouts/404.vue'),
+    },
+    // ...
+  }
+}
 
-const barTheme = (options) => {
-	return (app) => {
-		return {
-			name: "vuepress-theme-bar",
-			layouts: {
-				Layout: path.resolve(__dirname, "layouts/Layout.vue"),
-				404: path.resolve(__dirname, "layouts/404.vue"),
-			},
-			// ...
-		};
-	};
-};
+function barTheme(options) {
+  return (app) => {
+    return {
+      name: 'vuepress-theme-bar',
+      layouts: {
+        Layout: path.resolve(__dirname, 'layouts/Layout.vue'),
+        404: path.resolve(__dirname, 'layouts/404.vue'),
+      },
+      // ...
+    }
+  }
+}
 ```
 
 The `layouts` field declares the layouts provided by your theme. A theme must provide at least two layouts: `Layout` and `404`. The former is to provide default layout for common pages, while the latter is to provide layout for 404 page.
@@ -64,10 +64,10 @@ Also, there are some conventions for theme in [package.json](https://docs.npmjs.
 
 ```json
 {
-	"name": "vuepress-theme-foo",
-	"keywords": [
-		"vuepress-theme"
-	]
+  "name": "vuepress-theme-foo",
+  "keywords": [
+    "vuepress-theme"
+  ]
 }
 ```
 

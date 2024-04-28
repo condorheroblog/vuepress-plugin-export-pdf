@@ -1,22 +1,22 @@
 {
-	"name": "vue-press",
-	"version": "3.0.2",
-	"private": true,
-	"scripts": {
-		"docs:dev": "vuepress dev docs",
-		"docs:build": "vuepress build docs",
-		"vuepress:export": "vuepress export docs",
-		"vuepress:info": "vuepress info docs",
-		"help": "press-export-pdf --help",
-		"version": "press-export-pdf --version",
-		"systemInfo": "press-export-pdf info",
-		"docs:outFile": "press-export-pdf export docs --outFile docs.pdf",
-		"docs:outDir": "press-export-pdf export docs --outDir /tmp/outDir",
-		"docs:debug": "press-export-pdf export docs --debug",
-		"docs:export": "press-export-pdf export docs"
-	},
-	"devDependencies": {
-		"@condorhero/vuepress-plugin-export-pdf": "workspace:^",
-		"vuepress": "^1.9.9"
-	}
+  "name": "vue-press",
+  "version": "3.0.2",
+  "private": true,
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
+    "vuepress:export": "vuepress export docs",
+    "vuepress:info": "vuepress info docs",
+    "help": "press-export-pdf --help",
+    "version": "press-export-pdf --version",
+    "systemInfo": "press-export-pdf info",
+    "docs:outFile": "press-export-pdf export docs --outFile docs.pdf",
+    "docs:outDir": "press-export-pdf export docs --outDir /tmp/outDir",
+    "docs:debug": "press-export-pdf export docs --debug",
+    "docs:export": "press-export-pdf export docs"
+  },
+  "devDependencies": {
+    "@condorhero/vuepress-plugin-export-pdf": "workspace:^",
+    "vuepress": "^1.9.10"
+  }
 }

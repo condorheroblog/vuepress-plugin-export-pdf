@@ -1,8 +1,8 @@
-const { description } = require('../../package');
+const { description } = require('../../package')
 
 module.exports = {
   title: 'vue-press',
-  description: description,
+  description,
 
   head: [
     ['meta', { name: 'theme-color', content: '#3eaf7c' }],

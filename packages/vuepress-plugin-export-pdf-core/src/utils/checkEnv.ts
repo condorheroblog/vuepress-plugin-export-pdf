@@ -1,8 +1,6 @@
-/**
- * Module dependencies.
- */
+import process from 'node:process'
 
-import semver from "semver";
+import semver from 'semver'
 
 /**
  * Ensure that current Node version matches App's Node version and App's version matches peerVersion
@@ -16,26 +14,26 @@ import semver from "semver";
  */
 
 export function checkEnv(
-	appName: string,
-	nodeVersion: string,
-	appVersion: string,
-	peerVersion: string,
+  appName: string,
+  nodeVersion: string,
+  appVersion: string,
+  peerVersion: string,
 ) {
-	if (!semver.satisfies(process.version, nodeVersion, { includePrerelease: true })) {
-		console.error(
+  if (!semver.satisfies(process.version, nodeVersion, { includePrerelease: true })) {
+    console.error(
       `\n[${appName}] minimum Node version not met:`
       + `\nYou are using Node ${process.version}, but ${appName} `
       + `requires Node ${nodeVersion}.\nPlease upgrade your Node version.\n`,
-		);
-		process.exit(1);
-	}
+    )
+    process.exit(1)
+  }
 
-	if (!semver.satisfies(appVersion, peerVersion, { includePrerelease: true })) {
-		console.error(
+  if (!semver.satisfies(appVersion, peerVersion, { includePrerelease: true })) {
+    console.error(
       `\n[${appName}] version not met:`
       + `\nYou are using ${appName} ${appVersion}, but plugin `
       + `requires ${peerVersion}.\nPlease check it.\n`,
-		);
-		process.exit(1);
-	}
+    )
+    process.exit(1)
+  }
 }

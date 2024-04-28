@@ -1,7 +1,7 @@
-import type { CAC } from "@condorhero/vuepress-plugin-export-pdf-core";
+import type { CAC } from '@condorhero/vuepress-plugin-export-pdf-core'
 
-import { registerCommands } from "./commands";
-import type { UserConfig } from ".";
+import { registerCommands } from './commands'
+import type { UserConfig } from '.'
 
 /**
  * Extend CLI.
@@ -9,9 +9,9 @@ import type { UserConfig } from ".";
  * @param userConfig - User config
  */
 export function vuePressPlugin(userConfig: UserConfig) {
-	return {
-		extendCli: (cli: CAC) => {
-			registerCommands(cli, userConfig);
-		},
-	};
+  return {
+    extendCli: (cli: CAC) => {
+      registerCommands(cli, userConfig)
+    },
+  }
 }

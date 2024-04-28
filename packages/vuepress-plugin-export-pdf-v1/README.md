@@ -3,15 +3,15 @@
 `@condorhero/vuepress-plugin-export-pdf` is a VuePress 1.x plugin that allows you to export your sites to a PDF file with **outlines or bookmarks**.
 
 <p align="left">
-	<a href="https://www.npmjs.com/package/@condorhero/vuepress-plugin-export-pdf" target="__blank">
-		<img src="https://img.shields.io/npm/v/@condorhero/vuepress-plugin-export-pdf.svg?color=a1b858" alt="NPM version">
-	</a>
-	<a href="https://www.npmjs.com/package/@condorhero/vuepress-plugin-export-pdf" target="__blank">
-		<img alt="NPM Downloads" src="https://img.shields.io/npm/dm/@condorhero/vuepress-plugin-export-pdf.svg?color=50a36f">
-	</a>
-	<a href="https://github.com/condorheroblog/vuepress-plugin-export-pdf" target="__blank">
-		<img alt="GitHub stars" src="https://img.shields.io/github/stars/condorheroblog/vuepress-plugin-export-pdf?style=social">
-	</a>
+  <a href="https://www.npmjs.com/package/@condorhero/vuepress-plugin-export-pdf" target="__blank">
+    <img src="https://img.shields.io/npm/v/@condorhero/vuepress-plugin-export-pdf.svg?color=a1b858" alt="NPM version">
+  </a>
+  <a href="https://www.npmjs.com/package/@condorhero/vuepress-plugin-export-pdf" target="__blank">
+    <img alt="NPM Downloads" src="https://img.shields.io/npm/dm/@condorhero/vuepress-plugin-export-pdf.svg?color=50a36f">
+  </a>
+  <a href="https://github.com/condorheroblog/vuepress-plugin-export-pdf" target="__blank">
+    <img alt="GitHub stars" src="https://img.shields.io/github/stars/condorheroblog/vuepress-plugin-export-pdf?style=social">
+  </a>
 </p>
 
 ## Related
@@ -28,9 +28,9 @@ then add script to your `package.json`:
 
 ```json
 {
-	"scripts": {
-		"export-pdf": "press-export-pdf export [path/to/your/docs]"
-	}
+  "scripts": {
+    "export-pdf": "press-export-pdf export [path/to/your/docs]"
+  }
 }
 ```
 
@@ -47,13 +47,13 @@ The package provides the `press-export-pdf` command with the following command l
 ![vuepress-plugin-export-pdf.svg](./assets/vuepress-plugin-export-pdf.svg)
 
 - `export [sourceDir]`: Export your site to a PDF file
-	- `-c, --config <config>`: Set path to config file
-	- `--outFile <outFile>`: Name of output file
-	- `--pdfOutlines <pdfOutlines>`: Keep PDF outlines/bookmarks([**Node >= 18.5.0**](https://github.com/condorheroblog/vuepress-plugin-export-pdf/tree/v3.0.1/packages/vuepress-plugin-export-pdf-v1#qa))
-	- `--urlOrigin <urlOrigin>`: Change the origin of the print url(Option `displayHeaderFooter` of `pdfOptions` is true)
-	- `--outDir <outDir>`: Directory of output files
-	- `--theme <theme>`: Set VuePress theme
-	- `--debug`: Enable debug mode
+  - `-c, --config <config>`: Set path to config file
+  - `--outFile <outFile>`: Name of output file
+  - `--pdfOutlines <pdfOutlines>`: Keep PDF outlines/bookmarks([**Node >= 18.5.0**](https://github.com/condorheroblog/vuepress-plugin-export-pdf/tree/v3.0.1/packages/vuepress-plugin-export-pdf-v1#qa))
+  - `--urlOrigin <urlOrigin>`: Change the origin of the print url(Option `displayHeaderFooter` of `pdfOptions` is true)
+  - `--outDir <outDir>`: Directory of output files
+  - `--theme <theme>`: Set VuePress theme
+  - `--debug`: Enable debug mode
 - `info`: Display environment information
 - `--help`: Display help information
 - `--version`: Display version information
@@ -79,11 +79,11 @@ ex:
 
 ```ts
 // .vuepress/vuepress-pdf.config.ts
-import { defineUserConfig } from "@condorhero/vuepress-plugin-export-pdf";
+import { defineUserConfig } from '@condorhero/vuepress-plugin-export-pdf'
 
 export default defineUserConfig({
-	theme: "@vuepress/theme-default",
-});
+  theme: '@vuepress/theme-default',
+})
 ```
 if you want to use JS files, **you can leverage your IDE's intellisense with jsdoc type hints**:
 
@@ -92,10 +92,10 @@ if you want to use JS files, **you can leverage your IDE's intellisense with jsd
  * @type {import('@condorhero/vuepress-plugin-export-pdf').UserConfig}
  */
 const config = {
-	// ...
-};
+  // ...
+}
 
-export default config;
+export default config
 ```
 
 config options:
@@ -119,17 +119,17 @@ for example:
 
 ```js
 module.exports = {
-	plugins: [
-		require("./my-plugin.js"),
-	],
-};
+  plugins: [
+    require('./my-plugin.js'),
+  ],
+}
 ```
 
 `my-plugin.js`:
 
 ```js
-const { vuePressPlugin } = require("@condorhero/vuepress-plugin-export-pdf");
-module.exports = vuePressPlugin;
+const { vuePressPlugin } = require('@condorhero/vuepress-plugin-export-pdf')
+module.exports = vuePressPlugin
 ```
 
 ## Examples
@@ -141,21 +141,21 @@ A usable example of quick start [click here](./example/vue-press/).
 `console.log` all the routes in the sort function and assign them to the variable `routeOrder` as a value. You can adjust the order of printing in the array `routeOrder`.
 
 ```ts
-import { defineUserConfig } from "vitepress-export-pdf";
+import { defineUserConfig } from 'vitepress-export-pdf'
 const routeOrder = [
-	"/index.html",
-	"/guide/what-is-vitepress.html",
-	"/guide/getting-started.html",
-	"/guide/configuration.html",
-	// ...
-];
+  '/index.html',
+  '/guide/what-is-vitepress.html',
+  '/guide/getting-started.html',
+  '/guide/configuration.html',
+  // ...
+]
 export default defineUserConfig({
-	sorter: (pageA, pageB) => {
-		const aIndex = routeOrder.findIndex(route => route === pageA.path);
-		const bIndex = routeOrder.findIndex(route => route === pageB.path);
-		return aIndex - bIndex;
-	},
-});
+  sorter: (pageA, pageB) => {
+    const aIndex = routeOrder.findIndex(route => route === pageA.path)
+    const bIndex = routeOrder.findIndex(route => route === pageB.path)
+    return aIndex - bIndex
+  },
+})
 ```
 
 ### Discard your outlines/bookmarks
@@ -164,8 +164,8 @@ export default defineUserConfig({
 
 ```ts
 export default defineUserConfig({
-	pdfOutlines: false,
-});
+  pdfOutlines: false,
+})
 ```
 
 ### Don't export homepage
@@ -174,8 +174,8 @@ export default defineUserConfig({
 
 ```ts
 export default defineUserConfig({
-	routePatterns: ["!/"],
-});
+  routePatterns: ['!/'],
+})
 ```
 
 > Note: `!` at the beginning of a pattern will negate the match
@@ -192,13 +192,13 @@ for example:
 
 ```styl
 @media print {
-	.navbar,
-	.sidebar,
-	.sidebar-mask,
-	.page-edit,
-	.page-nav {
-		display: none;
-	}
+  .navbar,
+  .sidebar,
+  .sidebar-mask,
+  .page-edit,
+  .page-nav {
+    display: none;
+  }
 }
 ```
 
