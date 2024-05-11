@@ -1,9 +1,10 @@
 @media print {
   .navbar,
   .sidebar,
-  .sidebar-mask,
-  .page-edit,
-  .page-nav {
+  .sidebar-mask {
     display: none;
+  }
+  .page {
+    padding-left: inherit;
   }
 }

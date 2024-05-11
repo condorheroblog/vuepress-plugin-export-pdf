@@ -44,7 +44,7 @@ npm run export-pdf
 
 The package provides the `press-export-pdf` command with the following command line options:
 
-![vuepress-plugin-export-pdf-v2.svg](./assets/vuepress-plugin-export-pdf-v2.svg)
+![vuepress-plugin-export-pdf-v2.svg](https://github.com/condorheroblog/vuepress-plugin-export-pdf/raw/main/packages/vuepress-plugin-export-pdf-v2/assets/vuepress-plugin-export-pdf-v2.svg)
 
 - `export [sourceDir]`: Export your site to a PDF file
   - `-c, --config <config>`: Set path to config file
@@ -114,7 +114,7 @@ config options:
 
 ## Examples
 
-A usable example of quick start [click here](./example/vuepress-next/).
+A usable example of quick start [click here](https://github.com/condorheroblog/vuepress-plugin-export-pdf/tree/main/packages/vuepress-plugin-export-pdf-v2/example/vuepress-next).
 
 ### Order of PDF
 
@@ -170,19 +170,20 @@ It is recommended that you change it in the [global style](https://v2.vuepress.v
 
 for example:
 
-```styl
+```css
 @media print {
   .navbar,
   .sidebar,
-  .sidebar-mask,
-  .page-edit,
-  .page-nav {
+  .sidebar-mask {
     display: none;
+  }
+  .page {
+    padding-left: inherit;
   }
 }
 ```
 
-![print-style.png](./assets/print-style.png)
+![print-style.png](https://github.com/condorheroblog/vuepress-plugin-export-pdf/raw/main/packages/vuepress-plugin-export-pdf-v2/assets/print-style.png)
 
 ## Contributing
 

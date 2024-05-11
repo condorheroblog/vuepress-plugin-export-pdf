@@ -37,9 +37,8 @@ export async function mergePDF(pages: NormalizePage[], outFile: string, outDir: 
     let pdfData: Buffer
     if (pdfOutlines) {
       pdfData = await mergePDFs(pages.map(({ pagePath }) => {
-        // return convertPathToPosix(pagePath)
-        // TODO
-        return pagePath
+        const relativePagePath = relative(process.cwd(), pagePath)
+        return convertPathToPosix(relativePagePath)
       }))
     }
     else {

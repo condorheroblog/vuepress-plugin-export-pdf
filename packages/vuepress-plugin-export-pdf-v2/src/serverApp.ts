@@ -75,9 +75,9 @@ export async function serverApp(dir = 'docs', commandOptions: CommandOptions = {
 
   const siteBundler = bundler || vuePressConfig.bundler
   const siteTheme = theme || vuePressConfig.theme
-  // TODO 测试
+  // https://github.com/vuepress/core/blob/bab6ae90beb34194557eea1c979aacb0ea72ca91/packages/cli/src/config/resolveAppConfig.ts#L30
   if (siteBundler === undefined || siteTheme === undefined) {
-    process.stdout.write('error The bundler or theme option is missing. For more details: https://v2.vuepress.vuejs.org/guide/troubleshooting.html#the-bundler-theme-option-is-missing')
+    process.stdout.write('error The bundler or theme option is missing. For more details: https://v2.vuepress.vuejs.org/guide/troubleshooting.html#the-bundler-theme-option-is-missing \n\n')
     process.exit(0)
   }
 
@@ -106,10 +106,7 @@ export async function serverApp(dir = 'docs', commandOptions: CommandOptions = {
   const hashPages = pages.map(page => ({
     // join => /docs//zh/
     path: join(`${devApp.siteData.base}${page.path}`),
-    // TODO
-    // eslint-disable-next-line ts/ban-ts-comment
-    // @ts-expect-error
-    key: page.key,
+    key: page.path.replaceAll('/', '_'),
   }))
   try {
     await generatePdf({
