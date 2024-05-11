@@ -50,16 +50,16 @@
   },
   "dependencies": {
     "@condorhero/merge-pdfs": "^0.0.7",
-    "bundle-require": "^4.0.3",
+    "bundle-require": "^4.1.0",
     "cac": "^6.7.14",
-    "envinfo": "^7.12.0",
+    "envinfo": "^7.13.0",
     "fs-extra": "^11.2.0",
     "html-export-pdf-cli": "^1.1.5",
     "multimatch": "^7.0.0",
     "ora": "^8.0.1",
     "pdfjs": "^2.5.3",
     "picocolors": "^1.0.0",
-    "semver": "^7.6.0"
+    "semver": "^7.6.2"
   },
   "devDependencies": {
     "@types/envinfo": "^7.8.3",
