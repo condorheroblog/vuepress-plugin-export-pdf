@@ -4,8 +4,8 @@
 
 import type { CAC } from '@condorhero/vuepress-plugin-export-pdf-core'
 import { runCli, systemInfo } from '@condorhero/vuepress-plugin-export-pdf-core'
-import { serverApp } from '.'
-import type { UserConfig } from '.'
+import { serverApp } from '..'
+import type { UserConfig } from '..'
 
 export function registerCommands(program: CAC, extendCliConfig?: UserConfig) {
   // register `export` command
