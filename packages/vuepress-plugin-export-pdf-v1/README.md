@@ -105,7 +105,7 @@ config options:
 - `outFile` - name of output file (default `vuepress-YYMMDD-HHmmss.pdf`)
 - `outDir` - Directory of output files (default `package.json` file exists in directory)
 - `routePatterns` - Specify the patterns of files you want to be exported. The patterns are relative to the source directory (default `["/**", "!/404.html"]`).Patterns to match Route path using [multimatch](https://github.com/sindresorhus/multimatch)
-- `puppeteerLaunchOptions` - [Puppeteer launch options object](https://github.com/puppeteer/puppeteer/blob/main/docs/api/puppeteer.puppeteerlaunchoptions.md)
+- `puppeteerLaunchOptions` - [Puppeteer launch options object](https://github.com/puppeteer/puppeteer/blob/main/docs/api/puppeteer.launchoptions.md)
 - `pdfOptions` - [Valid options to configure PDF generation via Page.pdf()](https://github.com/puppeteer/puppeteer/blob/main/docs/api/puppeteer.pdfoptions.md) (default `{ format: 'A4 }`), **`pageNumber` and `totalPages` of `headerTemplate` and `footerTemplate` cannot be used because of [this reason](https://github.com/condorheroblog/vitepress-export-pdf/issues/5)**
 - `pdfOutlines` - Keep PDF outlines/bookmarks(default `true`)
 - `urlOrigin`: Change the origin of the print url(Option `displayHeaderFooter` of `pdfOptions` is true) - ([How do I change the URL point to the localhost](https://github.com/condorheroblog/vuepress-plugin-export-pdf/issues/5))
@@ -179,6 +179,17 @@ export default defineUserConfig({
 ```
 
 > Note: `!` at the beginning of a pattern will negate the match
+
+### Run in CI/CD environment
+
+```ts
+// In CI/CD pipeline, if Chrome runs as `root` user, set options to avoid permission issues.
+export default defineUserConfig({
+  // ...
+  puppeteerLaunchOptions: { headless: true, args: ['--disable-gpu', '--no-sandbox', '--disable-setuid-sandbox' ]},
+  // ...
+})
+```
 
 ### PDF print style
 
